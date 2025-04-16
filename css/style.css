@@ -26,7 +26,8 @@ main {
     margin-top: 20px;
 }
 
-.landing-page button {
+.landing-page button,
+.registration-page button {
     padding: 10px 20px;
     border: none;
     background-color: #5cb85c;
@@ -35,6 +36,31 @@ main {
     cursor: pointer;
 }
 
-.landing-page button:hover {
+.landing-page button:hover,
+.registration-page button:hover {
     background-color: #4cae4c;
+}
+
+.registration-page {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    width: calc(100% - 12px);
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
 }
