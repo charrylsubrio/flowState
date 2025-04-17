@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowState - Log-In</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>FlowState</h1>
+    </header>
+
+    <main class="login-page">
+        <h2>Log In to Your Account</h2>
+
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit">Log-In</button>
+
+            <div id="loginError" class="error-message" style="display: none;"></div>
+        </form>
+
+        <p>Don't have an account? <a href="registration.html">Register</a></p>
+    </main>
+
+    <footer>
+    </footer>
+
+    <script src="js/login.js"></script>
+</body>
+
+</html>
