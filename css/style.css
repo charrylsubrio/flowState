@@ -27,7 +27,8 @@ main {
 }
 
 .landing-page button,
-.registration-page button {
+.registration-page button,
+.login-page button {
     padding: 10px 20px;
     border: none;
     background-color: #5cb85c;
@@ -37,11 +38,13 @@ main {
 }
 
 .landing-page button:hover,
-.registration-page button:hover {
+.registration-page button:hover,
+.login-page button:hover {
     background-color: #4cae4c;
 }
 
-.registration-page {
+.registration-page,
+.login-page {
     max-width: 400px;
     margin: 0 auto;
 }
