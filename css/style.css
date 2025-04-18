@@ -67,3 +67,28 @@ main {
     border-radius: 4px;
     box-sizing: border-box;
 }
+
+.home-page .week-days {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 10px;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.home-page .day-box {
+    background-color: #eee;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.home-page .day-box:hover {
+    background-color: #ddd;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+}
