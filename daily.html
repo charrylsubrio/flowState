@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlowState - Daily Tasks</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <h1>FlowState</h1>
+        <h2 id="currentDay"></h2>
+    </header>
+
+    <main class="daily-page">
+        <section class="task-input">
+            <input type="text" id="newTask" placeholder="Add new task">
+            <input type="text" id="newComment" placeholder="Add comment (optional)">
+            <button id="addTaskBtn">Add Task</button>
+        </section>
+
+        <section class="task-list-container">
+            <ul id="taskList">
+            </ul>
+        </section>
+    </main>
+
+    <footer>
+    </footer>
+
+    <script src="js/daily.js"></script>
+</body>
+
+</html>
