@@ -28,7 +28,8 @@ main {
 
 .landing-page button,
 .registration-page button,
-.login-page button {
+.login-page button,
+.daily-page button {
     padding: 10px 20px;
     border: none;
     background-color: #5cb85c;
@@ -39,7 +40,8 @@ main {
 
 .landing-page button:hover,
 .registration-page button:hover,
-.login-page button:hover {
+.login-page button:hover,
+.daily-page button:hover {
     background-color: #4cae4c;
 }
 
@@ -60,7 +62,8 @@ main {
 }
 
 .form-group input[type="text"],
-.form-group input[type="password"] {
+.form-group input[type="password"],
+.daily-page input[type="text"] {
     width: calc(100% - 12px);
     padding: 8px;
     border: 1px solid #ccc;
@@ -88,7 +91,75 @@ main {
     background-color: #ddd;
 }
 
+.daily-page .task-input {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.daily-page .task-input input[type="text"] {
+    flex-grow: 1;
+}
+
+.daily-page .task-list-container ul {
+    list-style: none;
+    padding: 0;
+}
+
+.daily-page .task-list-container li {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+}
+
+.daily-page .task-list-container li:last-child {
+    border-bottom: none;
+}
+
+.daily-page .task-list-container li input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.daily-page .task-list-container li span {
+    flex-grow: 1;
+}
+
+.daily-page .task-list-container li span.completed {
+    text-decoration: line-through;
+    color: #777;
+}
+
+.daily-page .task-list-container li .comment {
+    font-style: italic;
+    color: #555;
+    margin-left: 25px;
+}
+
+.daily-page .task-list-container li .delete-btn {
+    background-color: #d9534f;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.daily-page .task-list-container li .delete-btn:hover {
+    background-color: #c9302c;
+}
+
 .error-message {
     color: red;
     margin-top: 10px;
+}
+
+/* Basic Drag and Drop Styling */
+.daily-page .task-list-container li[draggable="true"] {
+    cursor: grab;
+}
+
+.daily-page .task-list-container li.dragging {
+    opacity: 0.5;
 }
