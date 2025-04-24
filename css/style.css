@@ -3,6 +3,12 @@ body {
     margin: 20px;
     background-color: #f4f4f4;
     color: #333;
+
+    /* Prevent selecting text while dragging */
+    user-select: none; 
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
 }
 
 header {
@@ -110,7 +116,9 @@ main {
     display: flex;
     align-items: center;
     padding: 10px;
+    background-color: white; /* Ensure background for opacity transition */
     border-bottom: 1px solid #eee;
+    transition: background-color 0.2s ease; /* Smooth transition */
 }
 
 .daily-page .task-list-container li:last-child {
@@ -133,8 +141,11 @@ main {
 .daily-page .task-list-container li .comment {
     font-style: italic;
     color: #555;
-    margin-left: 25px;
+    margin-left: 25px; /* Keep comment aligned */
+    flex-grow: 2; /* Allow comment to take space if needed */
+    margin-right: 10px; /* Space before delete button */
 }
+
 
 .daily-page .task-list-container li .delete-btn {
     background-color: #d9534f;
@@ -143,7 +154,8 @@ main {
     padding: 5px 10px;
     border-radius: 4px;
     cursor: pointer;
-    margin-left: 10px;
+    margin-left: auto; /* Push delete button to the right */
+    flex-shrink: 0; /* Prevent button from shrinking */
 }
 
 .daily-page .task-list-container li .delete-btn:hover {
@@ -155,11 +167,20 @@ main {
     margin-top: 10px;
 }
 
-/* Basic Drag and Drop Styling */
+/* --- Drag and Drop Styling --- */
 .daily-page .task-list-container li[draggable="true"] {
-    cursor: grab;
+    cursor: grab; /* Indicate it's draggable */
 }
 
 .daily-page .task-list-container li.dragging {
-    opacity: 0.5;
+    opacity: 0.5;  /* Make the dragged item semi-transparent */
+    background: #cceeff; /* Optional: change background while dragging */
+    cursor: grabbing; /* Change cursor while actively dragging */
 }
+
+.daily-page .task-list-container li.drag-over {
+    /* Optional: Add a visual cue where the item will be dropped */
+     border-top: 2px solid blue; 
+    /* background-color: #eef; */ /* Alternative style */
+}
+/* --- End Drag and Drop Styling --- */
