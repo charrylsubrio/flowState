@@ -3,7 +3,6 @@ body {
     margin: 20px;
     background-color: #f4f4f4;
     color: #333;
-
     /* Prevent selecting text while dragging */
     user-select: none; 
     -webkit-user-select: none;
@@ -166,6 +165,31 @@ main {
     color: red;
     margin-top: 10px;
 }
+
+/* --- Styling for Inline Edit Input --- */
+.daily-page .task-list-container li .edit-input {
+    flex-grow: 1; /* Allow input to take available space */
+    padding: 4px 6px; /* Adjust padding to match text size */
+    margin: 0 5px 0 0; /* Minimal margin */
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-family: inherit; /* Use the same font as the list */
+    font-size: inherit; /* Use the same font size */
+    line-height: inherit; /* Match line height */
+    box-sizing: border-box; /* Include padding/border in width */
+    /* Ensure it doesn't push other elements too much */
+    min-width: 100px; 
+}
+/* Adjust specific input position if needed */
+.daily-page .task-list-container li span + .edit-input {
+     margin-left: 0; /* Input replacing span */
+}
+.daily-page .task-list-container li p.comment + .edit-input {
+    margin-left: 25px; /* Input replacing comment, keep indent */
+    font-style: italic; /* Keep italic style for comment input */
+    color: #555;
+}
+/* --- End Inline Edit Styling --- */
 
 /* --- Drag and Drop Styling --- */
 .daily-page .task-list-container li[draggable="true"] {
