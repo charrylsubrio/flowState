@@ -166,45 +166,70 @@ main {
     margin-top: 10px;
 }
 
+/* --- Section for Task Actions --- */
+.daily-page .task-actions {
+    margin-bottom: 15px; /* Space below the button */
+    padding-bottom: 15px; /* Add padding */
+    border-bottom: 1px solid #eee; /* Optional separator */
+    text-align: right; /* Align button(s) to the right */
+}
+
+/* --- General Danger Button Style --- */
+.danger-btn {
+    padding: 8px 15px;
+    border: none;
+    background-color: #d9534f; /* Red color */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+    transition: background-color 0.2s ease;
+}
+
+.danger-btn:hover {
+    background-color: #c9302c; /* Darker red on hover */
+}
+
+/* --- Utility class to hide elements --- */
+.hidden {
+    display: none;
+}
+
+
 /* --- Styling for Inline Edit Input --- */
 .daily-page .task-list-container li .edit-input {
-    flex-grow: 1; /* Allow input to take available space */
-    padding: 4px 6px; /* Adjust padding to match text size */
-    margin: 0 5px 0 0; /* Minimal margin */
+    flex-grow: 1;
+    padding: 4px 6px;
+    margin: 0 5px 0 0;
     border: 1px solid #ccc;
     border-radius: 3px;
-    font-family: inherit; /* Use the same font as the list */
-    font-size: inherit; /* Use the same font size */
-    line-height: inherit; /* Match line height */
-    box-sizing: border-box; /* Include padding/border in width */
-    /* Ensure it doesn't push other elements too much */
-    min-width: 100px; 
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    box-sizing: border-box;
+    min-width: 100px;
 }
-/* Adjust specific input position if needed */
 .daily-page .task-list-container li span + .edit-input {
-     margin-left: 0; /* Input replacing span */
+     margin-left: 0;
 }
 .daily-page .task-list-container li p.comment + .edit-input {
-    margin-left: 25px; /* Input replacing comment, keep indent */
-    font-style: italic; /* Keep italic style for comment input */
+    margin-left: 25px;
+    font-style: italic;
     color: #555;
 }
-/* --- End Inline Edit Styling --- */
 
 /* --- Drag and Drop Styling --- */
 .daily-page .task-list-container li[draggable="true"] {
-    cursor: grab; /* Indicate it's draggable */
+    cursor: grab;
 }
 
 .daily-page .task-list-container li.dragging {
-    opacity: 0.5;  /* Make the dragged item semi-transparent */
-    background: #cceeff; /* Optional: change background while dragging */
-    cursor: grabbing; /* Change cursor while actively dragging */
+    opacity: 0.5;
+    background: #cceeff;
+    cursor: grabbing;
 }
 
 .daily-page .task-list-container li.drag-over {
-    /* Optional: Add a visual cue where the item will be dropped */
-     border-top: 2px solid blue; 
-    /* background-color: #eef; */ /* Alternative style */
+     border-top: 2px solid blue;
 }
 /* --- End Drag and Drop Styling --- */
