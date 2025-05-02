@@ -1,5 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // ... (keep existing variables: currentDayElement, inputs, buttons, taskList, day, etc.) ...
     const currentDayElement = document.getElementById('currentDay');
     const newTaskInput = document.getElementById('newTask');
     const newCommentInput = document.getElementById('newComment');
@@ -10,8 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const day = urlParams.get('day') || 'today'; // Default to 'today'
 
     let draggedItem = null;
-    // --- State variable to prevent conflicts ---
-    let isEditing = false; // Flag to track if an input is currently active
+    let isEditing = false;
 
     // --- Initialize ---
     if (day) {
@@ -36,26 +34,23 @@ document.addEventListener('DOMContentLoaded', () => {
             const tasks = JSON.parse(tasksJSON);
             tasks.forEach(task => addTaskToUI(task.text, task.comment, task.completed));
         }
-         isEditing = false; // Reset editing state on load
+        isEditing = false;
     }
 
-    // --- Save Tasks (Reads current DOM state, including edits) ---
+    // --- Save Tasks ---
     function saveTasks(dayKey) {
-        // Prevent saving if an edit is in progress but not yet committed
         if (isEditing) {
             console.warn("Attempted to save while editing is active. Save prevented.");
             return;
         }
         const tasks = [];
         taskList.querySelectorAll('li').forEach(li => {
-            // Ensure we are not trying to read from an input field during save
-             const taskSpan = li.querySelector('span');
-             const commentP = li.querySelector('p.comment');
+            const taskSpan = li.querySelector('span');
+            const commentP = li.querySelector('p.comment');
 
             if (!taskSpan || li.querySelector('.edit-input')) {
                 console.error("Found list item in unexpected state during save:", li);
-                // Option: try to revert edit or skip this item
-                return; // Skip potentially broken item
+                return;
             }
 
             const text = taskSpan.textContent;
@@ -64,19 +59,19 @@ document.addEventListener('DOMContentLoaded', () => {
             tasks.push({ text, comment, completed });
         });
         localStorage.setItem(`flowstate_tasks_${dayKey}`, JSON.stringify(tasks));
-        console.log("Tasks saved for:", dayKey); // Add console log for debugging
+        // console.log("Tasks saved for:", dayKey); // Keep for debugging if needed
     }
 
     // --- Add Task Logic ---
     function addTask() {
-        if (isEditing) return; // Prevent adding if editing
+        if (isEditing) return;
         const taskText = newTaskInput.value.trim();
         const commentText = newCommentInput.value.trim();
         const currentDayKey = urlParams.get('day') || 'today';
 
         if (taskText) {
             addTaskToUI(taskText, commentText, false);
-            saveTasks(currentDayKey); // Save the updated list
+            saveTasks(currentDayKey);
             newTaskInput.value = '';
             newCommentInput.value = '';
             newTaskInput.focus();
@@ -108,18 +103,30 @@ document.addEventListener('DOMContentLoaded', () => {
         const taskSpan = listItem.querySelector('span');
 
         checkbox.addEventListener('change', () => {
-             if (isEditing) return; // Don't toggle if editing
+            if (isEditing) return;
             taskSpan.classList.toggle('completed', checkbox.checked);
             updateTaskCompletionInStorage();
         });
 
+        // --- DELETE BUTTON LISTENER ---
         deleteButton.addEventListener('click', () => {
-            if (isEditing) return; // Don't delete if editing
-            removeTask(listItem);
+            if (isEditing) return; // Don't delete if editing is active
+
+            // Get the task text for the confirmation message
+            const taskText = taskSpan.textContent; // Use the captured taskSpan
+            const confirmationMessage = `Are you sure you want to delete this task?\n\n"${taskText}"`;
+
+            // Show confirmation dialog using window.confirm()
+            if (window.confirm(confirmationMessage)) {
+                // If user clicks "OK" (confirm returns true), proceed with deletion
+                removeTask(listItem);
+            }
+            // If user clicks "Cancel" (confirm returns false), do nothing
         });
+        // --- END OF DELETE BUTTON LISTENER ---
     }
 
-    // --- Update/Remove Task (Simplified - rely on saveTasks) ---
+    // --- Update/Remove Task ---
     function updateTaskCompletionInStorage() {
         const currentDayKey = urlParams.get('day') || 'today';
         saveTasks(currentDayKey);
@@ -127,22 +134,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function removeTask(listItemToRemove) {
         const currentDayKey = urlParams.get('day') || 'today';
-        listItemToRemove.remove();
-        saveTasks(currentDayKey);
+        listItemToRemove.remove(); // Remove from UI
+        saveTasks(currentDayKey); // Resave the list state
     }
 
-    // --- Drag and Drop Event Listeners (Delegated) ---
+    // --- Drag and Drop Event Listeners ---
     taskList.addEventListener('dragstart', (e) => {
-        if (isEditing) { // Prevent dragging while editing
-             e.preventDefault();
-             return;
+        if (isEditing) {
+            e.preventDefault();
+            return;
         }
         if (e.target.tagName === 'LI') {
             draggedItem = e.target;
-            // Make sure dataTransfer is set early
             e.dataTransfer.effectAllowed = 'move';
-             // Optional: You might need setData for some browsers/scenarios, though not strictly needed for same-list reordering
-             e.dataTransfer.setData('text/plain', null); // Or some dummy data
+            e.dataTransfer.setData('text/plain', null);
             setTimeout(() => e.target.classList.add('dragging'), 0);
         }
     });
@@ -152,146 +157,118 @@ document.addEventListener('DOMContentLoaded', () => {
             draggedItem.classList.remove('dragging');
             taskList.querySelectorAll('.drag-over').forEach(el => el.classList.remove('drag-over'));
             draggedItem = null;
-             // Save order after drag completes successfully
-             const currentDayKey = urlParams.get('day') || 'today';
-             saveTasks(currentDayKey); // Save new order
+            const currentDayKey = urlParams.get('day') || 'today';
+            saveTasks(currentDayKey); // Save new order
         }
     });
 
     taskList.addEventListener('dragover', (e) => {
-        if (isEditing) return; // Prevent interaction if editing
+        if (isEditing) return;
         e.preventDefault();
         const targetItem = e.target.closest('li');
-         const listRect = taskList.getBoundingClientRect();
-
-         // Basic check if dragging within the list bounds vertically
-         if (e.clientY < listRect.top || e.clientY > listRect.bottom) {
-             taskList.querySelectorAll('.drag-over').forEach(el => el.classList.remove('drag-over')); // Clear indicator if outside
+        const listRect = taskList.getBoundingClientRect();
+        if (e.clientY < listRect.top || e.clientY > listRect.bottom) {
+             taskList.querySelectorAll('.drag-over').forEach(el => el.classList.remove('drag-over'));
              return;
-         }
-
+        }
         if (!targetItem || targetItem === draggedItem) return;
-
         taskList.querySelectorAll('.drag-over').forEach(el => el.classList.remove('drag-over'));
         targetItem.classList.add('drag-over');
         e.dataTransfer.dropEffect = 'move';
     });
 
      taskList.addEventListener('dragleave', (e) => {
-         // Check if the mouse truly left the list or just moved between items
          const listRect = taskList.getBoundingClientRect();
          if (e.clientY < listRect.top || e.clientY > listRect.bottom || e.clientX < listRect.left || e.clientX > listRect.right) {
              taskList.querySelectorAll('.drag-over').forEach(el => el.classList.remove('drag-over'));
          } else if (e.target.closest('li')) {
-             // It might have left one li but entered another, dragover will handle the new target
-             // However, if it leaves an LI to go to the UL padding, remove the style
               if(e.target.tagName === 'LI') {
                   e.target.classList.remove('drag-over');
               }
          } else {
-             // Left the list container entirely
              taskList.querySelectorAll('.drag-over').forEach(el => el.classList.remove('drag-over'));
          }
     });
 
     taskList.addEventListener('drop', (e) => {
-        if (isEditing) return; // Prevent drop if editing
+        if (isEditing) return;
         e.preventDefault();
         const targetItem = e.target.closest('li');
-
         taskList.querySelectorAll('.drag-over').forEach(el => el.classList.remove('drag-over'));
-
         if (targetItem && draggedItem && targetItem !== draggedItem) {
             const targetRect = targetItem.getBoundingClientRect();
             const targetMidY = targetRect.top + targetRect.height / 2;
-
             if (e.clientY < targetMidY) {
                 taskList.insertBefore(draggedItem, targetItem);
             } else {
                 taskList.insertBefore(draggedItem, targetItem.nextSibling);
             }
-            // NOTE: Saving is now handled in 'dragend' to ensure it happens *after* the drop operation completes.
         }
-
-        // Reset dragged item reference if drop occurred, even if dragend doesn't fire reliably
+        // Save is handled in dragend
         if (draggedItem) {
-             draggedItem.classList.remove('dragging'); // Ensure class is removed
-             // Don't nullify draggedItem here, let dragend handle it and the save.
+             draggedItem.classList.remove('dragging');
         }
     });
 
-    // --- Inline Editing Event Listener (Delegated) ---
+    // --- Inline Editing Event Listener ---
     taskList.addEventListener('dblclick', (e) => {
-        if (isEditing) return; // Prevent starting a new edit if one is active
-
+        if (isEditing) return;
         const target = e.target;
-        // Allow editing on the task span or the comment paragraph
-        if (target.tagName === 'SPAN' && !target.classList.contains('completed') || target.matches('p.comment')) {
-             // Don't allow editing completed task text for now (optional choice)
-            if (target.tagName === 'SPAN' && target.classList.contains('completed')) {
-                // Maybe provide feedback like a tooltip "Cannot edit completed tasks"
+        if ((target.tagName === 'SPAN' && !target.classList.contains('completed')) || target.matches('p.comment')) {
+             if (target.tagName === 'SPAN' && target.classList.contains('completed')) {
                 return;
             }
             startEditing(target);
         }
     });
 
-    // --- Start Editing Function ---
+    // --- Editing Functions ---
     function startEditing(element) {
-        isEditing = true; // Set editing flag
+        isEditing = true;
         const originalText = (element.tagName === 'P') ? element.textContent.replace('- ', '').trim() : element.textContent;
         const listItem = element.closest('li');
-        listItem.setAttribute('draggable', 'false'); // Disable dragging while editing
+        listItem.setAttribute('draggable', 'false');
 
         const input = document.createElement('input');
         input.type = 'text';
-        input.className = 'edit-input'; // Apply styling
+        input.className = 'edit-input';
         input.value = originalText;
-        input.dataset.originalText = originalText; // Store original value for cancel
-        input.dataset.originalTag = element.tagName; // Store tag type (SPAN or P)
+        input.dataset.originalText = originalText;
+        input.dataset.originalTag = element.tagName;
         if (element.tagName === 'P') {
-            input.dataset.isComment = 'true'; // Mark if it's a comment
+            input.dataset.isComment = 'true';
         }
 
-        // Replace the element with the input field
         element.parentNode.replaceChild(input, element);
         input.focus();
-        input.select(); // Select text for easy replacement
+        input.select();
 
-        // Add listeners directly to the input
         input.addEventListener('blur', handleEditFinish);
         input.addEventListener('keydown', handleEditKeyDown);
     }
 
-    // --- Handle Input Keydown (Enter/Escape) ---
     function handleEditKeyDown(e) {
         const input = e.target;
         if (e.key === 'Enter') {
-            e.preventDefault(); // Prevent potential form submission
-            finishEditing(input, true); // Save changes
+            e.preventDefault();
+            finishEditing(input, true);
         } else if (e.key === 'Escape') {
-            finishEditing(input, false); // Cancel changes
+            finishEditing(input, false);
         }
     }
 
-    // --- Handle Input Blur ---
     function handleEditFinish(e) {
-        // Blur events can sometimes fire unexpectedly.
-        // Check if the element still exists and is an input.
         const input = e.target;
-        if (input && input.tagName === 'INPUT' && input.classList.contains('edit-input')) {
-           finishEditing(input, true); // Assume save on blur
+         if (input && input.tagName === 'INPUT' && input.classList.contains('edit-input') && isEditing) {
+           finishEditing(input, true);
         }
     }
 
-
-    // --- Finish Editing (Save or Cancel) ---
     function finishEditing(inputElement, saveChanges) {
-        if (!isEditing || !inputElement.parentNode) return; // Prevent running if already finished or element removed
+        if (!isEditing || !inputElement.parentNode) return;
 
-        // Remove listeners immediately to prevent double execution (e.g., Enter then Blur)
-         inputElement.removeEventListener('blur', handleEditFinish);
-         inputElement.removeEventListener('keydown', handleEditKeyDown);
+        inputElement.removeEventListener('blur', handleEditFinish);
+        inputElement.removeEventListener('keydown', handleEditKeyDown);
 
         const newText = inputElement.value.trim();
         const originalText = inputElement.dataset.originalText;
@@ -299,60 +276,47 @@ document.addEventListener('DOMContentLoaded', () => {
         const isComment = inputElement.dataset.isComment === 'true';
         const listItem = inputElement.closest('li');
 
-
         let elementToRestore;
         if (saveChanges && newText !== '') {
-             // Create the element (SPAN or P) with the new text
-             elementToRestore = document.createElement(originalTag);
-             if (isComment) {
-                 elementToRestore.className = 'comment';
-                 elementToRestore.textContent = `- ${newText}`; // Add prefix back
-             } else {
-                 elementToRestore.textContent = newText;
-                 // Re-apply 'completed' class if the original task was completed (though we disabled editing completed ones)
-                  const checkbox = listItem.querySelector('input[type="checkbox"]');
-                  if (checkbox && checkbox.checked) {
-                       elementToRestore.classList.add('completed');
-                  }
-             }
-        } else {
-            // Restore original element (Cancel or empty input)
             elementToRestore = document.createElement(originalTag);
-             if (isComment) {
-                 elementToRestore.className = 'comment';
-                 elementToRestore.textContent = `- ${originalText}`;
-             } else {
-                 elementToRestore.textContent = originalText;
-                  const checkbox = listItem.querySelector('input[type="checkbox"]');
-                  if (checkbox && checkbox.checked) {
-                       elementToRestore.classList.add('completed');
-                  }
-             }
-             // If saving empty text for a non-comment, treat as cancel? Or allow empty task text?
-             // Current logic restores original if newText is empty.
-             // If saving empty text for a *comment*, effectively *removes* the comment.
-             if (saveChanges && newText === '' && isComment) {
-                 elementToRestore = null; // Signal to remove the comment element entirely
-             }
+            if (isComment) {
+                elementToRestore.className = 'comment';
+                elementToRestore.textContent = `- ${newText}`;
+            } else {
+                elementToRestore.textContent = newText;
+                const checkbox = listItem?.querySelector('input[type="checkbox"]'); // Add safe navigation
+                if (checkbox && checkbox.checked) {
+                    elementToRestore.classList.add('completed');
+                }
+            }
+        } else {
+            elementToRestore = document.createElement(originalTag);
+            if (isComment) {
+                elementToRestore.className = 'comment';
+                elementToRestore.textContent = `- ${originalText}`;
+            } else {
+                elementToRestore.textContent = originalText;
+                const checkbox = listItem?.querySelector('input[type="checkbox"]'); // Add safe navigation
+                 if (checkbox && checkbox.checked) {
+                     elementToRestore.classList.add('completed');
+                 }
+            }
+            if (saveChanges && newText === '' && isComment) {
+                elementToRestore = null;
+            }
         }
 
-        // Replace input with the restored/updated element, or remove if it was a comment being deleted
-         if (elementToRestore) {
+        if (elementToRestore) {
             inputElement.parentNode.replaceChild(elementToRestore, inputElement);
-         } else if (isComment) {
-             inputElement.remove(); // Remove the input node (which represented the comment)
-         }
+        } else if (isComment) {
+            inputElement.remove();
+        }
 
+        isEditing = false;
+        if (listItem) listItem.setAttribute('draggable', 'true');
 
-        // --- Cleanup and Save ---
-        isEditing = false; // Reset editing flag
-        if (listItem) listItem.setAttribute('draggable', 'true'); // Re-enable dragging
-
-        // Save only if changes were intended to be saved and potentially made
         if (saveChanges) {
-             const currentDayKey = urlParams.get('day') || 'today';
-            // Use a small delay to ensure DOM is fully updated before saving,
-            // especially if blur triggered the save.
+            const currentDayKey = urlParams.get('day') || 'today';
              setTimeout(() => saveTasks(currentDayKey), 50);
         }
     }
