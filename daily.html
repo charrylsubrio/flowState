@@ -18,11 +18,18 @@
         <section class="task-input">
             <input type="text" id="newTask" placeholder="Add new task">
             <input type="text" id="newComment" placeholder="Add comment (optional)">
+            <select id="newPriority" title="Set task priority">
+                <option value="High">High</option>
+                <option value="Medium">Medium</option> 
+                <option value="Low">Low</option>
+            </select>
             <button id="addTaskBtn">Add Task</button>
         </section>
 
         <section class="task-actions hidden">
-            <button id="deleteAllBtn" class="danger-btn">Delete All Tasks</button>
+            <button id="sortPriorityHighBtn" class="sort-btn" title="Sort by priority (High first)">Sort ▼</button>
+            <button id="sortPriorityLowBtn" class="sort-btn" title="Sort by priority (Low first)">Sort ▲</button>
+            <button id="deleteAllBtn" class="danger-btn" title="Delete all tasks for this day">Delete All Tasks</button>
         </section>
 
         <section class="task-list-container">
@@ -33,7 +40,7 @@
     <footer>
     </footer>
 
-    <script src="js/daily.js"></script>
+    <script src="js/daily.js" defer></script>
 </body>
 
 </html>
