@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Daily Task Calendar</title>
+  <link rel="stylesheet" href="design.css" />
+  <style>
+    
+
+    html {
+      scroll-behavior: smooth; /* Smooth scrolling to destination */
+    }
+
+
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar Section -->
+  <div class="navbar">
+    <div class="logo">
+
+      <!-- Logo -->
+      <img src="your-logo.png" alt="TaskTrackr Logo" />
+    </div>
+    <ul class="nav-links">
+      <!-- Navigation links para mo procced sa home|contact us|about us -->
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#contact">Contact Us</a></li>
+    </ul>
+    <div class="auth-buttons">
+      <!-- Buttons for starting the app or logging in -->
+      <a href="#" class="start-btn">Start Now – It’s Free</a>
+      <div class="login-group">
+        <span>Already have an account? <a href="#">Log In</a></span>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Home Section -->
+  <div id="home" class="main-message">
+    <div class="text-content">
+      <!-- Main content of the Home Section -->
+      <h1>Get things done</h1>
+      <h2>with the #1 task</h2>
+      <h3>To-Do List app</h3>
+      <p>Stay on top of your tasks, boost team productivity,<br>and ensure nothing falls through the cracks—<br>all in one seamless to-do list app tailored for busy teams.</p>
+      <button id="startNow">Start Now, It's Free!</button>
+      <div class="extra-info">
+        <!-- Extra information about the app -->
+        <p>No credit card needed | Best use! | ★★★★★</p>
+        <div class="store-links-row">
+          <!-- App Store and iOS Store -->
+          <div class="store-link">✅ <span>App Store</span></div>
+          <div class="store-link">✅ <span>iOS Store</span></div>
+        
+        </div>     
+      </div>
+    </div>
+    <div class="image-container">
+      <!-- Image of the To-Do List GIF -->
+      <img src="c:\\CJ FILES\\Project(HomePage)\\Example\\To do list.gif" alt="To-do list GIF" class="about-gif">
+    </div>
+  </div>
+
+  <!-- About Us Section -->
+  <div id="about" class="section about-section">
+    <div class="about-header">
+      <!-- Header for the About Us Section -->
+      <h2>Learn more about our To-Do List app</h2>
+      <img src="c:\\CJ FILES\\Project(HomePage)\\Example\\about-us.gif" alt="About Us GIF" class="about-gif">
+    </div>
+    <div class="about-details">
+      <!-- Details of the To-Do List app features -->
+      <img src="c:\\CJ FILES\\Project(HomePage)\\Example\\Picture(creating).gif" alt="Creating Tasks GIF" class="about-image">
+      <div class="about-text">
+        <p class="highlight">Create and assign tasks in the blink of an eye</p>
+        <ul class="features-list">
+          <!-- Features list of the app -->
+          <li>✅ Make employee task tracking easier by managing all tasks right from your mobile device</li>
+          <li>✅ Set up one-time tasks with due dates or recurring tasks to automate daily assignments</li>
+          <li>✅ Add detailed descriptions and subtasks so your employees know exactly what needs to be done</li>
+          <li>✅ Clarify tasks by attaching to-do lists, images, files, forms, and checklists</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- Contact Us Section -->
+  <div id="contact" class="contact-section">
+    <!-- Contact Us Section Header -->
+    <h2 style="text-align: center; font-size: 36px; font-weight: bold; margin-bottom: 30px;">Contact Us</h2>
+    <div class="contact-content" style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px;">
+     
+      <!-- Contact Customer Support Content| Talk to Us Card  -->
+      <div class="contact-card">
+        <!-- Contact Customer Support Content -->
+        <h3>Contact Customer Support</h3>
+        <p>Sometimes you need a little help from your friends, or a Task To-Do Team. Don’t worry... we're here to help you.</p>
+        <button style="margin-top: 15px; padding: 10px 15px; background-color: #d88c9a; color: white; border: none; border-radius: 5px; font-weight: bold;">Contact Support</button>
+      </div>
+
+      <!-- Talk to Us Card -->
+      <div class="contact-card">
+        <!-- Talk to Us Content -->
+        <h3>Talk to Us</h3>
+        <p>If interested in our Task To-Do List app? Just pick up the phone and contact our Task To-Do List Team.</p>
+        <!-- Phone number for contacting -->
+        <p style="font-weight: bold; font-size: 1.1em; margin-top: 10px;">📞 +63 1573 235 45</p>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
+
+<!-- Extras bellow (last)section text -->
+<div class="footer-section">
+  <ul class="footer-links">
+    <li><a href="#dpa">DPA</a></li>
+    <li><a href="#gdpr">GDPR Ready</a></li>
+    <li><a href="#privacy">Privacy</a></li>
+    <li><a href="#terms">Terms</a></li>
+    <li><a href="#cookies">Cookies Settings</a></li>
+  </ul>
+</div>
+
