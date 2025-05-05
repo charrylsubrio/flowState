@@ -1,33 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FlowState - Organize Your Week</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FlowState: Your Daily Task Flow</title>
+    <link rel="icon" type="image/png" href="img/fsIcon1.png">
+    <link rel="stylesheet" href="css/landing.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 </head>
-
 <body>
-    <header>
-        <h1>FlowState</h1>
-    </header>
 
-    <main class="landing-page">
-        <section class="overview">
-            <p>Your interactive to-do list for a productive week.</p>
-        </section>
+  <div class="navbar">
+    <a href="#" class="logo-link">
+        <div class="logo">
+            <img src="img/fsLogo1.png" alt="FlowState Logo"/>
+        </div>
+    </a>
+    <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+    </ul>
+    <div class="auth-buttons">
+        <a href="registration.html" class="start-btn">Start Free - Find Your Flow!</a>
+        <div class="login-group">
+            <span>Already in the flow? <a href="login.html" id="loginBtn">Log In</a></span>
+        </div>
+    </div>
+</div>
 
-        <section class="actions">
-            <button id="registerBtn">Register</button>
-            <button id="loginBtn">Log-In</button>
-        </section>
-    </main>
+    <div id="home" class="main-message">
+        <div class="text-content">
+            <h1>Achieve Your Goals, <br> One Day at a Time <br> with FlowState!</h1>
+            <p>Organize your tasks by day, stay focused, and experience the power of seamless productivity. FlowState is your interactive to-do list designed to help you find your daily rhythm.</p>
+            <button id="registerBtn" type="button" class="btn btn-secondary">Start Free - Experience FlowState!</button>
+            <div class="extra-info">
+                <p>No credit card needed | Organize your week with ease! | ★★★★★</p>
+                <div class="store-links-row">
+                    <div class="store-link">✅ <span>Access on any PC</span></div>
+                    <div class="store-link">✅ <span>Mobile-friendly design</span></div>
+                </div>
+            </div>
+        </div>
+        <div class="image-container">
+            <img src="img/landing1.3.gif" alt="Interactive to-do list GIF" class="about-gif">
+        </div>
+    </div>
 
-    <footer>
+    <div id="features" class="section about-section">
+        <div class="about-header">
+            <h2>Unlock Seamless Productivity with FlowState's Features</h2>
+            <img src="img/landing2.1.gif" alt="FlowState Features GIF" class="about-gif">
+        </div>
+        <div class="about-details">
+            <img src="img/landing3.1.gif" alt="Adding Tasks in FlowState GIF" class="about-image">
+            <div class="about-text">
+                <p class="highlight">Effortlessly Manage Your Daily Tasks</p>
+                <ul class="features-list">
+                    <li>✅ Organize your week with dedicated views for each day.</li>
+                    <li>✅ Easily add, delete, and mark tasks as complete with a simple click.</li>
+                    <li>✅ Reorder tasks intuitively with drag and drop to prioritize your day.</li>
+                    <li>✅ Edit task content quickly to keep your list up-to-date.</li>
+                    <li>✅ Persist your tasks across sessions with local storage – no data loss!</li>
+                </ul>
+            </div>
+        </div>
+        <div class="about-details" style="flex-direction: row-reverse;">
+            <img src="img/landing4.gif" alt="Drag and Drop in FlowState GIF" class="about-image">
+            <div class="about-text">
+                <p class="highlight">Experience the Power of Interactive Organization</p>
+                <ul class="features-list">
+                    <li>✅ Visualize your entire week at a glance.</li>
+                    <li>✅ Dive into each Daily Page for a focused view of your tasks.</li>
+                    <li>✅ Feel the satisfaction of completing tasks with visual updates.</li>
+                    <li>✅ Enjoy a clean and intuitive interface designed for focus.</li>
+                    <li>✅ Start free and discover a better way to manage your day!</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div id="contact" class="contact-section">
+        <h2 style="text-align: center; font-size: 36px; font-weight: bold; margin-bottom: 30px;">Ready to Find Your Flow? Contact Us!</h2>
+        <div class="contact-content" style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 30px;">
+          <div class="contact-card">
+            <h3>Need Assistance?</h3>
+            <p>Our FlowState support team is here to help you achieve peak productivity. Reach out with any questions or feedback!</p>
+            <a href="#" class="refresh-button-link">
+                <button style="margin-top: 15px; padding: 10px 15px; border-radius: 5px; font-weight: bold;">Contact Support</button>
+            </a>
+        </div>
+            <div class="contact-card">
+                <h3>Let's Connect!</h3>
+                <p>Interested in learning more about FlowState or have a suggestion? We'd love to hear from you!</p>
+                <p style="font-weight: bold; font-size: 1.1em; margin-top: 10px;">📞 09512085365 <br> (Customer Support)</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="qualities">
+        <div class="container">
+            <div class="row text-center mt-5">
+
+                <div class="col-md-3 footer-item">
+                    <i class="bi bi-calendar-week fs-2"></i> <h6>Organize Your Week</h6>
+                    <p>Plan your tasks day by day for better focus and clarity.</p>
+                </div>
+
+                <div class="col-md-3 footer-item">
+                    <i class="bi bi-list-check fs-2"></i> <h6>Interactive To-Do Lists</h6>
+                    <p>Add, delete, mark as complete, and reorder tasks with ease.</p>
+                </div>
+
+                <div class="col-md-3 footer-item">
+                    <i class="bi bi-arrows-move fs-2"></i> <h6>Seamless Reordering</h6>
+                    <p>Prioritize your tasks with intuitive drag and drop functionality.</p>
+                </div>
+
+                <div class="col-md-3 footer-item">
+                    <i class="bi bi-cloud-check fs-2"></i> <h6>Your Data, Always There</h6>
+                    <p>Tasks are saved securely in your browser with local storage.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="call-to-action">
+      <div class="container">
+          <h2>Ready to Take Control of Your Day?</h2>
+          <p>Sign up for FlowState today and experience a new level of productivity!</p>
+          <a href="registration.html" class="signup-btn">Sign Up for Free</a>
+      </div>
+    </div>
+
+    <footer class="text-light pt-5">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-3">
+                    <h5 class="text-warning">FLOWSTATE</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#home" class="text-light text-decoration-none">Home</a></li>
+                        <li><a href="#features" class="text-light text-decoration-none">Features</a></li>
+                        <li><a href="#contact" class="text-light text-decoration-none">Contact Us</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3">
+                    <h5 class="text-warning">FUNCTIONALITIES</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">Add & Delete Tasks</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Mark as Complete</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Drag & Drop Reordering</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3">
+                    <h5 class="text-warning">ACCOUNT</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="registration.html" class="text-light text-decoration-none">Register</a></li>
+                        <li><a href="login.html" class="text-light text-decoration-none">Log In</a></li>
+                    </ul>
+                </div>
+
+                <div class="col-md-3">
+                    <h5 class="text-warning">FOLLOW US</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">Facebook</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Twitter</a></li>
+                        <li><a href="#" class="text-light text-decoration-none">Instagram</a></li>
+                    </ul>
+                    <h5 class="text-warning mt-4">EXPLORE</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-light text-decoration-none">Blog</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="row mt-4">
+                <div class="col-md-6 text-center text-md-start">
+                    <small>© 2025 FlowState. All Rights Reserved.</small>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+
+                    <i class="bi bi-lightbulb fs-4 mx-2" style="color: #ffc10d;"></i>
+                    <span>Focus on Productivity</span>
+
+                    <i class="bi bi-check-all fs-4 mx-2" style="color: #ffc10d;"></i>
+                    <span>Achieve Your Goals</span>
+                </div>
+            </div>
+        </div>
     </footer>
-    
     <script src="js/landing.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
