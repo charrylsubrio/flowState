@@ -191,9 +191,10 @@ main.daily-page {
     border-bottom: none;
     border-radius: 0 0 15px 15px; /* Round bottom corners of the list */
 }
+
 .daily-page .task-list-container li:first-child {
      /* Optional: Round top corners if list container has padding */
-     /* border-radius: 15px 15px 0 0; */
+     border-radius: 15px 15px 0 0;
 }
 .daily-page .task-list-container li:hover {
     background-color: #f8f9fa; /* Light gray hover */
