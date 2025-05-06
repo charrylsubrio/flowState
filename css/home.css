@@ -7,22 +7,23 @@ body {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+    padding: 20px; /* Add padding */
 }
 
+/* --- Header --- */
 header {
-    padding: 10px 20px; 
-    text-align: center; 
+    text-align: center;
+    padding: 10px 20px;
+    margin-bottom: 40px; /* Space below header */
 }
 
-.logo-img {
+/* Style assumes logo is added to daily.html */
+header .logo-img {
     width: 250px;
     height: auto;
     display: block;
-    margin-left: 10%;
-    margin-top: -5%;
-    margin-bottom: 20px;
-    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
-    padding-top: 190px;
+    margin: 0 auto 20px auto; /* Center logo */
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3)); /* Match home logo shadow */
 }
 
 main {
