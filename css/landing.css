@@ -3,7 +3,7 @@
 /* Background, font, and spacing setup */
 body {
   font-family: Arial, sans-serif;
-  background-color: #f8f9fa; /* A light background for better contrast with the new theme */
+  /* background-color: #f8f9fa; A light background for better contrast with the new theme */
   margin: 0;
   padding: 0;
   color: #343a40; /* Default text color set to the logo color */
