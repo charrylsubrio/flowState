@@ -1,0 +1,340 @@
+/* --- css/daily.css --- */
+
+/* --- Global Styles & Body --- */
+body {
+    font-family: sans-serif;
+    color: #333;
+    margin: 0; /* Reset default margin */
+    padding: 20px; /* Add padding */
+    /* Dynamic background gradient should be set by daily.js like home.js */
+    background-color: #eee; /* Fallback background */
+    min-height: 100vh; /* Ensure background covers viewport */
+    user-select: none; /* Prevent text selection during drag */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+}
+
+/* --- Header --- */
+header {
+    text-align: center;
+    padding: 10px 20px;
+    margin-bottom: 40px; /* Space below header */
+}
+
+/* Style assumes logo is added to daily.html */
+header .logo-img {
+    width: 250px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto; /* Center logo */
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3)); /* Match home logo shadow */
+}
+
+/* Hide text H1 if logo is used */
+header h1 {
+    display: none;
+}
+
+/* Style the H2 for the current day */
+header h2#currentDay {
+    font-size: 2.2rem; /* Slightly larger day title */
+    font-weight: 600;
+    color: #fff; /* White like day box text */
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4); /* Shadow like day box text */
+    margin-top: -15px; /* Adjust spacing relative to logo */
+}
+
+/* --- Main Layout & Content Area --- */
+main.daily-page {
+    max-width: 850px; /* Max width for task area */
+    margin: 0 auto; /* Center the block */
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+    padding: 30px 40px; /* Generous padding */
+    border-radius: 15px; /* Rounded corners */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+}
+
+/* Spacing between sections */
+.daily-page section {
+    margin-bottom: 25px;
+}
+.daily-page section:last-child {
+    margin-bottom: 0;
+}
+
+/* --- Task Input Section --- */
+.daily-page .task-input {
+    display: flex;
+    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    gap: 15px; /* Spacing between inputs/button */
+    align-items: center; /* Vertical alignment */
+    padding-bottom: 25px;
+    border-bottom: 1px solid #eee; /* Separator */
+}
+
+.daily-page .task-input input[type="text"],
+.daily-page .task-input select {
+    padding: 10px 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Consistent rounding */
+    box-sizing: border-box;
+    font-size: 1rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.daily-page .task-input input[type="text"] {
+    flex-grow: 1; /* Allow text inputs to take more space */
+    min-width: 150px; /* Minimum width */
+}
+
+.daily-page .task-input select {
+    background-color: white;
+    cursor: pointer;
+    min-width: 100px; /* Prevent being too small */
+}
+
+/* Focus styles using a theme color */
+.daily-page .task-input input[type="text"]:focus,
+.daily-page .task-input select:focus {
+    border-color: #a1c4fd; /* Blue from Monday box */
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(161, 196, 253, 0.3); /* Soft glow */
+}
+
+/* --- General Button Style (Base) --- */
+.daily-page button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    letter-spacing: 0.5px;
+    color: white; /* Default button text color */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.daily-page button:hover {
+    opacity: 0.9;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
+.daily-page button:active {
+    transform: scale(0.98); /* Press effect */
+    box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+}
+
+/* Add Task Button */
+.daily-page #addTaskBtn {
+    background-color: #5cb85c; /* Green */
+    flex-shrink: 0; /* Prevent shrinking */
+}
+.daily-page #addTaskBtn:hover {
+    background-color: #4cae4c;
+}
+
+/* --- Task Actions Section --- */
+.daily-page .task-actions {
+    display: flex;
+    justify-content: flex-end; /* Align buttons to the right */
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee; /* Separator */
+}
+
+/* Sort Buttons */
+.daily-page .sort-btn {
+    background-color: #6c757d; /* Bootstrap secondary gray */
+    color: white;
+    padding: 8px 15px;
+    font-size: 0.9em;
+}
+.daily-page .sort-btn:hover {
+    background-color: #5a6268;
+}
+
+/* Delete All Button */
+.daily-page .danger-btn {
+    background-color: #d9534f; /* Red */
+    color: white;
+    padding: 8px 15px;
+    font-size: 0.9em;
+}
+.daily-page .danger-btn:hover {
+    background-color: #c9302c;
+}
+
+/* Utility class to hide elements */
+.hidden {
+    display: none !important; /* Ensure it overrides other display properties */
+}
+
+/* --- Task List Styling --- */
+.daily-page .task-list-container ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.daily-page .task-list-container li {
+    display: flex;
+    align-items: center;
+    gap: 12px; /* Spacing between items in the row */
+    padding: 12px 15px;
+    background-color: white;
+    border-bottom: 1px solid #eee;
+    transition: background-color 0.2s ease;
+    min-height: 50px; /* Consistent row height */
+}
+.daily-page .task-list-container li:last-child {
+    border-bottom: none;
+    border-radius: 0 0 15px 15px; /* Round bottom corners of the list */
+}
+.daily-page .task-list-container li:first-child {
+     /* Optional: Round top corners if list container has padding */
+     /* border-radius: 15px 15px 0 0; */
+}
+.daily-page .task-list-container li:hover {
+    background-color: #f8f9fa; /* Light gray hover */
+}
+
+/* Checkbox */
+.daily-page .task-list-container li input[type="checkbox"] {
+    flex-shrink: 0;
+    cursor: pointer;
+    width: 18px;
+    height: 18px;
+    accent-color: #a1c4fd; /* Use a theme color (Monday blue) */
+    margin-top: 2px; /* Fine-tune alignment */
+}
+
+/* Priority Labels */
+.daily-page .priority-label {
+    font-weight: bold;
+    padding: 4px 10px; /* Slightly more padding */
+    border-radius: 6px;
+    font-size: 0.8em;
+    cursor: pointer;
+    user-select: none;
+    border: 1px solid transparent;
+    flex-shrink: 0;
+    text-align: center;
+    min-width: 70px; /* Ensure space for text */
+    color: #fff; /* White text */
+    text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    transition: background-color 0.2s ease;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Define priority colors - using vibrant theme colors */
+.daily-page .priority-high { background-color: #ff7a85; border-color: #cc626b; } /* Inspired by Sunday/Thursday */
+.daily-page .priority-medium { background-color: #ffca2c; border-color: #cca223; color: #333; text-shadow: none; } /* Inspired by Friday */
+.daily-page .priority-low { background-color: #a1ffce; border-color: #81cc9e; color: #333; text-shadow: none; } /* Inspired by Friday */
+
+/* Content inside priority labels (JS adds High/Medium/Low text) */
+/* Optionally add icons */
+/* .daily-page .priority-high::before { content: "🔥 High"; } */
+/* .daily-page .priority-medium::before { content: "🟠 Medium"; } */
+/* .daily-page .priority-low::before { content: "🟢 Low"; } */
+
+
+/* Task Text Span */
+.daily-page .task-list-container li span:not(.priority-label) {
+    flex-grow: 1; /* Take available space */
+    word-break: break-word;
+    cursor: text; /* Indicate editable */
+    padding: 2px 0;
+}
+.daily-page .task-list-container li span.completed {
+    text-decoration: line-through;
+    color: #888;
+    font-style: italic;
+}
+
+/* Comment Paragraph */
+.daily-page .task-list-container li p.comment {
+    font-style: italic;
+    color: #555;
+    flex-basis: 35%; /* Suggest width, but allow shrinking */
+    flex-shrink: 2;
+    word-break: break-word;
+    margin: 0; /* Reset default */
+    font-size: 0.9em;
+    cursor: text; /* Indicate editable */
+    padding: 2px 0;
+    text-align: right; /* Align comments to the right */
+}
+
+/* Delete Button (within LI) */
+.daily-page .task-list-container li .delete-btn {
+    background-color: transparent;
+    color: #dc3545; /* Bootstrap danger red */
+    border: none;
+    padding: 0; /* Remove padding */
+    border-radius: 50%; /* Circle */
+    cursor: pointer;
+    margin-left: auto; /* Push to far right */
+    flex-shrink: 0;
+    font-size: 1.3em; /* Make X slightly larger */
+    line-height: 1;
+    width: 32px; /* Set fixed size */
+    height: 32px; /* Set fixed size */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    box-shadow: none; /* Override general button shadow */
+}
+.daily-page .task-list-container li .delete-btn:hover {
+    background-color: #dc3545;
+    color: white;
+    opacity: 1; /* Ensure full opacity on hover */
+}
+.daily-page .task-list-container li .delete-btn:active {
+     transform: scale(0.95); /* Slightly different active scale */
+     box-shadow: none;
+ }
+
+
+/* --- Styling for Inline Edit Input --- */
+.daily-page .task-list-container li .edit-input {
+    flex-grow: 1; /* Take space */
+    padding: 8px 10px; /* Match other inputs */
+    margin: 0;
+    border: 1px solid #a1c4fd; /* Highlight editing */
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    box-sizing: border-box;
+    min-width: 100px;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(161, 196, 253, 0.3); /* Focus glow */
+}
+
+/* Style input when editing comments */
+.daily-page .task-list-container li .edit-input[data-original-tag='P'] {
+    font-style: italic;
+    color: #555;
+    text-align: right; /* Match comment alignment */
+    flex-basis: 35%; /* Try to match comment width */
+}
+
+/* --- Drag and Drop Styling --- */
+.daily-page .task-list-container li[draggable="true"] {
+    cursor: grab;
+}
+.daily-page .task-list-container li.dragging {
+    opacity: 0.6;
+    background: #eef4ff; /* Light blue background while dragging */
+    cursor: grabbing;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Lift effect */
+    border-radius: 8px; /* Apply rounding while dragging */
+}
+.daily-page .task-list-container li.drag-over {
+    /* Use border or background change */
+    /* border-top: 3px dashed #a1c4fd; */
+    background-color: #ddeeff; /* Highlight drop target */
+}

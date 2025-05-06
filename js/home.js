@@ -8,6 +8,7 @@ function getRandomColor() {
     }
     return color;
 }
+
 document.addEventListener('DOMContentLoaded', () => {
     const todayIndex = new Date().getDay(); // 0 = Sunday
     const boxes = document.querySelectorAll('.day-box');
