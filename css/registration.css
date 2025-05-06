@@ -1,0 +1,134 @@
+/* Base styles from home.css */
+body {
+    font-family: sans-serif;
+    margin: 0; /* Remove default body margin for full background coverage */
+    color: #333;
+    display: flex; /* Use flexbox to center content */
+    flex-direction: column; /* Stack children vertically */
+    min-height: 100vh; /* Ensure body takes at least full viewport height */
+    padding: 20px; /* Add padding */
+    /* Background handled by registration.js */
+}
+
+/* --- Header --- */
+header {
+    text-align: center;
+    padding: 10px 20px;
+    margin-bottom: 40px; /* Space below header */
+}
+
+/* Style assumes logo is added to daily.html */
+header .logo-img {
+    width: 250px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px auto; /* Center logo */
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3)); /* Match home logo shadow */
+}
+
+/* Registration Page Container */
+.registration-page {
+    max-width: 400px; /* Restrict max width */
+    margin: 40px auto; /* Center horizontally and add top/bottom margin */
+    padding: 30px; /* Add internal padding */
+    background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent white background */
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Box shadow similar to day-box hover */
+    text-align: center; /* Center text elements inside */
+    flex-grow: 1; /* Allow main content to grow and push footer down */
+}
+
+.registration-page h2 {
+    font-size: 2rem;
+    margin-bottom: 25px;
+    color: #222;
+}
+
+/* Form Styling (reusing patterns from home.css) */
+#registrationForm {
+    width: 100%; /* Form takes full width of its container */
+    margin-bottom: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px; /* Increase spacing between groups */
+    text-align: left; /* Align labels and inputs left */
+}
+
+.form-group label {
+    display: block; /* Label on its own line */
+    margin-bottom: 8px; /* Space below label */
+    font-weight: bold;
+    color: #555;
+}
+
+.form-group input[type="text"],
+.form-group input[type="password"] {
+    width: 100%; /* Input takes full width minus padding/border */
+    padding: 10px; /* Increase padding */
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Slightly more rounded corners */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    font-size: 1em;
+}
+
+/* Button Styling (using the green theme color from home.css) */
+.registration-page button[type="submit"] {
+    width: 100%; /* Button takes full width */
+    padding: 12px 20px; /* Adjust padding */
+    border: none;
+    background-color: #5cb85c; /* Theme's green color */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+    margin-top: 10px; /* Space above button */
+}
+
+.registration-page button[type="submit"]:hover {
+    background-color: #4cae4c; /* Darker green on hover */
+}
+
+/* Link below the form */
+.registration-page p {
+    font-size: 0.95em;
+    color: #555;
+}
+
+.registration-page p a {
+    color: #007bff; /* Bootstrap primary blue for links */
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.registration-page p a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Footer styling - minimal for an empty footer */
+footer {
+    padding: 20px;
+    text-align: center;
+    color: #aaa; /* Light color for potential copyright text */
+}
+
+
+/* Responsive adjustments */
+@media (max-width: 576px) {
+    .registration-page {
+        margin: 20px auto;
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+
+    .registration-page h2 {
+        font-size: 1.7rem;
+        margin-bottom: 20px;
+    }
+}
