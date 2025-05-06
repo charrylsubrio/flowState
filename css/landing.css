@@ -15,7 +15,7 @@ body {
   justify-content: space-between; /* Align items to the sides */
   align-items: center; /* Center vertically */
   background-color: #343a40; /* Navbar background is now the logo color */
-  border-bottom: 2px solid #343a40; /* Bottom border matches the background */
+  /* border-bottom: 2px solid #343a40; Bottom border matches the background */
   padding: 20px 60px; /* Increased horizontal padding on the navbar */
 }
 
@@ -503,7 +503,7 @@ html {
 
 /* Call to Action Section */
 .call-to-action {
-  background-color: #e9ecef; /* Light grey background for contrast */
+  /* background-color: #e9ecef; Light grey background for contrast */
   padding: 60px 20px;
   text-align: center;
 }
@@ -515,13 +515,13 @@ html {
 
 .call-to-action h2 {
   font-size: 2.0em;
-  color: #343a40;
+  color: #ffffff;
   margin-bottom: 15px;
 }
 
 .call-to-action p {
   font-size: 1.1em;
-  color: #555;
+  color: #eeeeee;
   margin-bottom: 30px;
 }
 
@@ -529,7 +529,7 @@ html {
   display: inline-block;
   padding: 12px 25px;
   background-color: #343a40; /* Initial button background color */
-  color: white;
+  color: #eeeeee;
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
@@ -538,7 +538,7 @@ html {
 }
 
 .call-to-action .signup-btn:hover {
-  color: #343a40; /* Hover text color same as initial background */
+  color: #eeeeee; /* Hover text color same as initial background */
   background-color: transparent; /* Transparent background on hover */
-  border: 2px solid #343a40; /* Border with initial background color on hover */
+  border: 2px solid #eeeeee; /* Border with initial background color on hover */
 }
