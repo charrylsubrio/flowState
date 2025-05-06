@@ -9,12 +9,34 @@ body {
   color: #343a40; /* Default text color set to the logo color */
 }
 
+/* Styling for the prominent "Start Free" button link */
+.navbar .start-btn {
+  padding: 10px 20px;
+  border: none;
+  background-color: #5cb85c; /* Theme's green color */
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease; /* Add box-shadow to transition */
+  display: inline-block; /* Ensure padding and shadow work */
+  /* Add box shadow */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+}
+
+.navbar .start-btn:hover {
+  background-color: #4cae4c; /* Darker green on hover */
+  /* Adjust box shadow on hover */
+  box-shadow: 0 5px 12px rgba(0, 0, 0, 0.22);
+}
+
 /* Navigation Bar Design */
 .navbar {
   display: flex;
   justify-content: space-between; /* Align items to the sides */
   align-items: center; /* Center vertically */
-  background-color: #343a40; /* Navbar background is now the logo color */
+  /* background-color: #343a40; Navbar background is now the logo color */
   /* border-bottom: 2px solid #343a40; Bottom border matches the background */
   padding: 20px 60px; /* Increased horizontal padding on the navbar */
 }
@@ -73,7 +95,7 @@ body {
 /* Text Below Start Button (Log In Section) */
 .auth-buttons .login-group {
   font-size: 14px;
-  color: #6c757d; /* A softer grey for this text */
+  color: #eeeeef; /* A softer grey for this text */
 }
 
 /* Log In Link Style */
