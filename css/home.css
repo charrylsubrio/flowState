@@ -1,14 +1,15 @@
 /* Base styles from the original home.css */
 body {
     font-family: sans-serif;
-    margin: 20px;
+    margin: 0; /* Remove default body margin for full background coverage */
     color: #333;
     /* Prevent selecting text while dragging */
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    /* Background handled by home.js */
+    /* Background handled by home.js - Add transition */
+    transition: background 1s ease-in-out; /* Smooth transition for background changes */
 }
 
 /* Modified Header Styling to include the menu icon */
@@ -16,10 +17,22 @@ header {
     padding: 10px 20px;
     text-align: center; /* Centers the logo */
     position: relative; /* Needed for absolute positioning of the icon */
-    /* Add padding to ensure space for the absolutely positioned icon */
-    padding-top: 120px;
+    /* Adjust padding to ensure space for the absolutely positioned icon and logo */
+    padding-top: 20px; /* Reduced top padding */
     padding-bottom: 30px;
+    /* Add animation for header elements on load */
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideDownFadeInHeader 0.6s ease-out forwards 0.2s; /* Add delay */
 }
+
+@keyframes slideDownFadeInHeader {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 /* Menu Icon Link Container (positioned) */
 .menu-icon-link {
@@ -30,7 +43,9 @@ header {
     z-index: 10; /* Ensure it's above other elements in the header */
     /* Add transition for hover effect */
     transition: transform 0.2s ease, opacity 0.2s ease;
-    padding-left: 50px;
+    padding: 10px; /* Add padding around the icon for easier clicking */
+    /* Removed padding-left: 50px; as padding on link is sufficient */
+    box-sizing: border-box; /* Include padding in size */
 }
 
 /* Menu Icon Image Styling */
@@ -40,13 +55,19 @@ header {
     cursor: pointer; /* Indicate it's clickable */
     /* Add a subtle shadow, consistent with the theme */
     filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
-    padding-top: 40px;
+    /* Removed padding-top: 40px; relying on link padding and header padding */
+    transition: transform 0.1s ease; /* Add press animation */
 }
 
 /* Menu Icon Hover Effect */
 .menu-icon-link:hover {
     transform: scale(1.1); /* Slightly enlarge on hover */
     opacity: 0.9; /* Slightly reduce opacity */
+}
+
+/* Menu Icon Active (Press) Effect */
+.menu-icon-link:active .menu-icon {
+     transform: scale(0.95); /* Slightly shrink the icon when pressed */
 }
 
 
@@ -56,13 +77,20 @@ header {
     height: auto;
     display: block;
     /* Adjust margins/padding for the new header layout */
-    /* Removed large negative margin and padding, relying on header padding */
     margin: 0 auto; /* Center horizontally */
     filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
     /* Remove the large padding-top */
     padding-top: 0;
     margin-bottom: 20px; /* Keep space below logo */
+    /* Add transition for hover effect */
+    transition: transform 0.3s ease-in-out;
 }
+
+/* Logo Hover Effect */
+.logo-img:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
 
 /* Original main styling */
 main {
@@ -70,7 +98,19 @@ main {
     background-color: transparent;
     border-radius: 0;
     box-shadow: none;
+    /* Add animation for the main content on load */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUpMain 0.6s ease-out forwards 0.4s; /* Add delay */
 }
+
+@keyframes fadeInUpMain {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 /* Original landing page actions styling (included as part of original css) */
 .landing-page .actions {
@@ -81,6 +121,7 @@ main {
 }
 
 /* Original button styling (included as part of original css) */
+/* Keeping these generic styles but adding active state transitions */
 .landing-page button,
 .registration-page button,
 .login-page button,
@@ -91,6 +132,7 @@ main {
     color: white;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease; /* Added transform */
 }
 
 .landing-page button:hover,
@@ -99,6 +141,16 @@ main {
 .daily-page button:hover {
     background-color: #4cae4c;
 }
+
+/* Add active state for generic buttons */
+.landing-page button:active,
+.registration-page button:active,
+.login-page button:active,
+.daily-page button:active {
+    background-color: #398439; /* Even darker green */
+    transform: scale(0.98); /* Slightly shrink when pressed */
+}
+
 
 /* Original registration/login page container styling (included as part of original css) */
 .registration-page,
@@ -182,22 +234,31 @@ main {
 .day-box[data-day="tuesday"]   { background-image: linear-gradient(135deg, #fbc2eb, #a6c1ee); }
 .day-box[data-day="wednesday"] { background-image: linear-gradient(135deg, #ffecd2, #fcb69f); }
 .day-box[data-day="thursday"]  { background-image: linear-gradient(135deg, #ffdde1, #ee9ca7); }
-.day-box[data-day="friday"]    { background-image: linear-gradient(135deg, #a1ffce, #faffd1); }
-.day-box[data-day="saturday"]  { background-image: linear-gradient(135deg, #fbc2eb, #fcd4df); }
+.day-box[data-day="friday"]     { background-image: linear-gradient(135deg, #a1ffce, #faffd1); }
+.day-box[data-day="saturday"]   { background-image: linear-gradient(135deg, #fbc2eb, #fcd4df); }
 
 /* Original day-box hover */
 .home-page .day-box:hover {
-    transform: scale(1.05);
+    transform: scale(1.13);
     box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* Add active state for day boxes */
+.home-page .day-box:active {
+    transform: scale(1.02); /* Slightly shrink when pressed */
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2); /* Slightly reduce shadow */
 }
 
 /* Original today-highlight */
 .today-highlight {
     border: 3px solid #0d6efd;
     box-shadow: 0 0 15px rgba(13, 110, 253, 0.5);
+    /* Add transition for the highlight properties */
+    transition: border-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
 }
 
 /* --- Original Daily Page specific styles (included as part of original css) --- */
+/* Keeping these as they were in the original file */
 .daily-page .task-input {
     display: flex;
     flex-wrap: wrap;
