@@ -26,6 +26,32 @@ header .logo-img {
     filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3)); /* Match home logo shadow */
 }
 
+/* Back Arrow Link Container (positioned) - Similar to menu-icon-link in home.css */
+.back-arrow-link {
+    position: absolute; /* Position relative to the header */
+    top: 20px; /* Adjust vertical position */
+    left: 20px; /* Adjust horizontal position */
+    display: block;
+    z-index: 10; /* Ensure it's above other elements */
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    padding-left: 50px; /* Adjust padding similar to menu-icon-link */
+}
+
+/* Back Arrow Icon Styling - Similar to menu-icon in home.css */
+.back-arrow-icon {
+    font-size: 2rem; /* Adjust icon size */
+    color: white; /* Changed color to white */
+    cursor: pointer;
+    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.4));
+    padding-top: 0; /* No extra padding needed here */
+}
+
+/* Back Arrow Link Hover Effect - Similar to menu-icon-link hover */
+.back-arrow-link:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
 /* Login Page Container */
 .login-page {
     max-width: 400px; /* Restrict max width */
