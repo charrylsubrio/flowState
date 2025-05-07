@@ -3,13 +3,16 @@
 /* Base styles - Copy from home.css */
 body {
     font-family: sans-serif;
-    margin: 20px;
+    margin: 0; /* Reset default margin for full background coverage */
+    padding: 20px; /* Add padding */
     color: #333; /* Default text color for general content */
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    /* Background handled by menu.js */
+    min-height: 100vh; /* Ensure background covers viewport */
+    /* Background handled by menu.js - Add transition */
+    transition: background 1s ease-in-out;
 }
 
 /* Header Styling - Similar structure to home.css header */
@@ -18,9 +21,22 @@ header {
     text-align: center; /* Centers block/inline-block children like logo and title */
     position: relative; /* Needed for absolute positioning of the icon */
     /* Adjust padding to make space for both logo and title */
-    padding-top: 70px; /* Increased padding to push logo down */
+    padding-top: 20px; /* Adjusted padding-top */
     padding-bottom: 30px; /* Space below the title */
+     /* Add animation for header elements on load */
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideDownFadeInHeader 0.6s ease-out forwards 0.2s; /* Add delay */
 }
+
+/* Keyframes for header animation */
+@keyframes slideDownFadeInHeader {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 /* Back Arrow Link Container (positioned) - Similar to menu-icon-link in home.css */
 .back-arrow-link {
@@ -30,7 +46,9 @@ header {
     display: block;
     z-index: 10; /* Ensure it's above other elements */
     transition: transform 0.2s ease, opacity 0.2s ease;
-    padding-left: 50px; /* Adjust padding similar to menu-icon-link */
+    padding: 10px; /* Add padding around the icon for easier clicking */
+    box-sizing: border-box; /* Include padding in size */
+     color: white; /* Ensure the link area itself doesn't change color */
 }
 
 /* Back Arrow Icon Styling - Similar to menu-icon in home.css */
@@ -40,6 +58,7 @@ header {
     cursor: pointer;
     filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.4));
     padding-top: 0; /* No extra padding needed here */
+    transition: color 0.2s ease, transform 0.1s ease; /* Add color and transform transitions */
 }
 
 /* Back Arrow Link Hover Effect - Similar to menu-icon-link hover */
@@ -47,6 +66,17 @@ header {
     transform: scale(1.1);
     opacity: 0.9;
 }
+
+/* Optional: Change icon color slightly on hover for extra feedback */
+.back-arrow-link:hover .back-arrow-icon {
+    color: #eee; /* Slightly lighter white on hover */
+}
+
+/* Back Arrow Link Active (Press) Effect */
+.back-arrow-link:active .back-arrow-icon {
+     transform: scale(0.95); /* Slightly shrink the icon when pressed */
+}
+
 
 /* Logo Image Styling - Copied from home.css, adjusted margin */
 .logo-img {
@@ -56,6 +86,13 @@ header {
     margin: 0 auto; /* Center horizontally */
     filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
     margin-bottom: 10px; /* Space below logo, before title */
+     /* Add subtle transition */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Logo Hover Effect */
+.logo-img:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 
@@ -68,6 +105,18 @@ header {
     filter: drop-shadow(0 0px 6px rgba(0, 0, 0, 0.3));
     margin-bottom: 20px; /* Space below title */
     text-align: center;
+     /* Add animation for the page title */
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUpPageTitle 0.6s ease-out forwards 0.5s; /* Add delay */
+}
+
+/* Keyframes for page title animation */
+@keyframes fadeInUpPageTitle {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 
@@ -75,7 +124,20 @@ header {
 main {
     padding: 20px;
     /* Background handled by JS */
+     /* Add animation for the main content on load */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUpMain 0.6s ease-out forwards 0.4s; /* Add delay */
 }
+
+/* Keyframes for main content animation (reusable) */
+@keyframes fadeInUpMain {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 /* Menu List */
 .menu-list {
@@ -87,6 +149,18 @@ main {
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow similar to day boxes */
     overflow: hidden; /* Clip rounded corners */
+     /* Add animation for the menu list container on load */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUpMenuList 0.6s ease-out forwards 0.7s; /* Add delay */
+}
+
+/* Keyframes for menu list container animation */
+@keyframes fadeInUpMenuList {
+     to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Menu Item */
@@ -95,13 +169,55 @@ main {
     align-items: center;
     padding: 15px 20px;
     cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.1s ease;
+    transition: background-color 0.2s ease, transform 0.2s ease, opacity 0.2s ease; /* Added opacity */
+     /* Initial state for staggered animation */
+    opacity: 0;
+    transform: translateX(-20px);
 }
+
+/* Staggered animation for menu items */
+/* Use nth-child to apply delay based on index */
+.menu-list .menu-item:nth-child(1) { animation: slideRightFadeInItem 0.5s ease-out forwards 0.9s; } /* Delay after list appears */
+.menu-list .menu-separator:nth-of-type(1) { animation: fadeInHr 0.5s ease-out forwards 1.0s; } /* Animate hr separately using class */
+.menu-list .menu-item:nth-child(3) { animation: slideRightFadeInItem 0.5s ease-out forwards 1.1s; }
+.menu-list .menu-separator:nth-of-type(2) { animation: fadeInHr 0.5s ease-out forwards 1.2s; }
+.menu-list .menu-item:nth-child(5) { animation: slideRightFadeInItem 0.5s ease-out forwards 1.3s; }
+.menu-list .menu-separator:nth-of-type(3) { animation: fadeInHr 0.5s ease-out forwards 1.4s; }
+.menu-list .menu-item:nth-child(7) { animation: slideRightFadeInItem 0.5s ease-out forwards 1.5s; }
+
+
+/* Keyframes for menu item staggered animation */
+@keyframes slideRightFadeInItem {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Keyframes for HR fade in */
+@keyframes fadeInHr {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Make HR initially hidden for animation */
+.menu-list .menu-separator {
+    opacity: 0;
+}
+
 
 .menu-item:hover {
     background-color: rgba(0, 0, 0, 0.05); /* Subtle hover background */
     transform: translateX(5px); /* Slight slide effect on hover */
 }
+
+/* Add Active (Press) effect for menu items */
+.menu-item:active {
+    transform: scale(0.98); /* Slightly shrink when pressed */
+    background-color: rgba(0, 0, 0, 0.1); /* Darker hover background on press */
+}
+
 
 .menu-item a {
     text-decoration: none;
@@ -110,17 +226,32 @@ main {
     font-weight: 500;
     flex-grow: 1; /* Allow link to take available space */
     margin-left: 10px; /* Space between icon and text */
+    transition: color 0.2s ease; /* Add color transition */
 }
+
+/* Link hover effect (subtle color change) */
+.menu-item a:hover {
+    color: #007bff; /* Bootstrap primary blue */
+}
+
 
 /* Icons within Menu Items */
 .menu-item i {
     font-size: 1.5rem; /* Adjust icon size */
     color: #0d6efd; /* Use a theme color, maybe blue similar to highlight */
     flex-shrink: 0; /* Prevent icon from shrinking */
+     transition: color 0.2s ease; /* Add color transition */
 }
 
+/* Icon color change on menu item hover */
+.menu-item:hover i {
+    color: #0a58ca; /* Slightly darker blue */
+}
+
+
 /* Horizontal Rule Separator */
-hr {
+/* hr styling kept, but opacity animated by keyframes */
+.menu-list hr {
     border: none;
     border-top: 1px solid rgba(0, 0, 0, 0.1); /* Subtle separator line */
     margin: 0 20px; /* Match list padding */
@@ -133,11 +264,21 @@ hr {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
-    display: flex; /* Used by JS to show the modal */
+    background-color: rgba(255, 255, 255, 0.0); /* Start fully transparent */
+    display: flex;
     justify-content: center;
     align-items: center;
     z-index: 1000; /* Ensure it's on top */
+    /* Initial state - hidden by JS. Will transition opacity */
+    visibility: hidden;
+    transition: background-color 0.3s ease, visibility 0s linear 0.3s; /* Transition background, hide visibility after transition */
+}
+
+/* State when modal is active (visible) */
+.modal-overlay.active {
+    background-color: rgba(255, 255, 255, 0.8); /* Fade to semi-transparent white */
+    visibility: visible;
+    transition: background-color 0.3s ease; /* Transition background, visibility change happens instantly on becoming active */
 }
 
 /* Modal Content */
@@ -150,7 +291,18 @@ hr {
     width: 90%; /* Responsive width */
     position: relative; /* For close button positioning */
     text-align: center; /* Center modal content */
+    /* Initial state - scaled down and hidden */
+    opacity: 0;
+    transform: scale(0.8);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 }
+
+/* State when modal is active (visible) */
+.modal-overlay.active .modal-content {
+    opacity: 1;
+    transform: scale(1); /* Scale up to normal size */
+}
+
 
 .modal-content h3 {
     margin-top: 0;
@@ -167,12 +319,18 @@ hr {
     font-weight: bold;
     color: #aaa;
     cursor: pointer;
-    transition: color 0.2s ease;
+    transition: color 0.2s ease, transform 0.1s ease; /* Added transform */
 }
 
 .close-button:hover {
     color: #777;
 }
+
+/* Close Button Active (Press) Effect */
+.close-button:active {
+    transform: scale(0.9); /* Shrink when pressed */
+}
+
 
 /* Profile Info */
 .profile-info {
@@ -197,9 +355,17 @@ hr {
     border-radius: 5px;
     cursor: pointer;
     font-size: 1rem;
-    transition: background-color 0.2s ease;
+     transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease; /* Added transform and box-shadow */
+     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
 .manage-btn:hover {
     background-color: #4cae4c; /* Darker green on hover */
+     box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+}
+
+/* Manage Profile Button Active (Press) Effect */
+.manage-btn:active {
+     transform: scale(0.98); /* Press effect */
+     box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
 }
