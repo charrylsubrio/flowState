@@ -298,44 +298,6 @@ body {
   color: #343a40;
 }
 
-
-/*============================================================================================================================== */
-
-/* Mission and Vision Layout Side by Side */
-.mission-vision {
-  display: flex;
-  justify-content: space-between;
-  gap: 30px;
-  margin: 40px 20px;
-  flex-wrap: wrap;
-}
-
-/* Mission and Vision Card Design */
-.mission-vision .mission,
-.mission-vision .vision {
-  flex: 1;
-  min-width: 280px;
-  background-color: #fff; /* White cards */
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-/* Mission and Vision Title Style */
-.mission-vision h3 {
-  font-size: 1.5em;
-  color: #343a40;
-  margin-bottom: 10px;
-}
-
-/* Mission and Vision Paragraph Style */
-.mission-vision p {
-  font-size: 1.1em;
-  color: #6c757d;
-  line-height: 1.6;
-}
-
-
 /*============================================================================================================================== */
 
 /* Contact Us Section */
@@ -402,13 +364,6 @@ body {
   border: 2px solid #343a40; /* Added border with the logo's dark color on hover */
 }
 
-/* Phone Number Styling */
-.phone-number {
-  font-size: 1.2em;
-  font-weight: bold;
-  color: #343a40;
-}
-
 
 /*============================================================================================================================== */
 
@@ -419,31 +374,6 @@ body {
   color: #ffc107; /* Keeping the warning color as is */
 }
 
-.footer-section {
-  background-color: #e9ecef; /* Light grey footer background */
-  padding: 20px;
-  text-align: left; /* Aligns the links to the left */
-}
-
-/* Extras text below (style)*/
-.footer-links li {
-  display: inline-block;
-  margin-right: 15px; /* space*/
-}
-
-/* effect (Underline) */
-.footer-links a {
-  text-decoration: none;
-  color: #343a40;
-  font-size: 16px;
-  transition: text-decoration 0.3s ease, color 0.3s ease; /* Smooth line and color transition */
-}
-
-/* Hover effect to underline */
-.footer-links a:hover {
-  text-decoration: underline;
-  color: #2c3035;
-}
 
 .qualities {
   background-color: #f8f9fa; /* Light grey background */
@@ -577,43 +507,43 @@ html {
 /* Define Keyframes */
 @keyframes fadeIn {
   from {
-    opacity: 0;
+      opacity: 0;
   }
   to {
-    opacity: 1;
+      opacity: 1;
   }
 }
 
 @keyframes slideInLeft {
   from {
-    opacity: 0;
-    transform: translateX(-50px);
+      opacity: 0;
+      transform: translateX(-50px);
   }
   to {
-    opacity: 1;
-    transform: translateX(0);
+      opacity: 1;
+      transform: translateX(0);
   }
 }
 
 @keyframes slideInRight {
   from {
-    opacity: 0;
-    transform: translateX(50px);
+      opacity: 0;
+      transform: translateX(50px);
   }
   to {
-    opacity: 1;
-    transform: translateX(0);
+      opacity: 1;
+      transform: translateX(0);
   }
 }
 
 @keyframes fadeInUp {
   from {
-    opacity: 0;
-    transform: translateY(20px);
+      opacity: 0;
+      transform: translateY(20px);
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+      opacity: 1;
+      transform: translateY(0);
   }
 }
 
@@ -646,3 +576,4 @@ html {
 .animate-on-scroll.is-visible[data-delay="0.2s"] { animation-delay: 0.2s; }
 .animate-on-scroll.is-visible[data-delay="0.4s"] { animation-delay: 0.4s; }
 .animate-on-scroll.is-visible[data-delay="0.6s"] { animation-delay: 0.6s; }
+.animate-on-scroll.is-visible[data-delay="0.7s"] { animation-delay: 0.7s; }
