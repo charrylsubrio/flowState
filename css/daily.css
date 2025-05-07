@@ -1,6 +1,3 @@
-/* --- css/daily.css --- */
-
-/* --- Global Styles & Body --- */
 body {
     font-family: sans-serif;
     color: #333;
@@ -13,6 +10,8 @@ body {
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
+    /* Add transition for background changes from JS */
+    transition: background 1s ease-in-out;
 }
 
 /* --- Header --- */
@@ -20,7 +19,20 @@ header {
     text-align: center;
     padding: 10px 20px;
     margin-bottom: 40px; /* Space below header */
+    position: relative; /* Needed for absolute positioning of the icon */
+    /* Add animation for header elements on load */
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideDownFadeInHeader 0.6s ease-out forwards 0.2s; /* Add delay */
 }
+
+@keyframes slideDownFadeInHeader {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 /* Style assumes logo is added to daily.html */
 header .logo-img {
@@ -29,6 +41,12 @@ header .logo-img {
     display: block;
     margin: 0 auto 20px auto; /* Center logo */
     filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3)); /* Match home logo shadow */
+    /* Add subtle transition */
+    transition: transform 0.3s ease-in-out;
+}
+
+header .logo-img:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 /* Hide text H1 if logo is used */
@@ -43,7 +61,19 @@ header h2#currentDay {
     color: #fff; /* White like day box text */
     text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4); /* Shadow like day box text */
     margin-top: -15px; /* Adjust spacing relative to logo */
+    /* Add animation for the day title */
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeInUpDayTitle 0.6s ease-out forwards 0.5s; /* Add delay */
 }
+
+@keyframes fadeInUpDayTitle {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 /* Back Arrow Link Container (positioned) - Similar to menu-icon-link in home.css */
 .back-arrow-link {
@@ -53,7 +83,9 @@ header h2#currentDay {
     display: block;
     z-index: 10; /* Ensure it's above other elements */
     transition: transform 0.2s ease, opacity 0.2s ease;
-    padding-left: 50px; /* Adjust padding similar to menu-icon-link */
+    padding: 10px; /* Add padding around the icon for easier clicking */
+    box-sizing: border-box; /* Include padding in size */
+    color: white; /* Ensure the link area itself doesn't change color */
 }
 
 /* Back Arrow Icon Styling - Similar to menu-icon in home.css */
@@ -63,6 +95,7 @@ header h2#currentDay {
     cursor: pointer;
     filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.4));
     padding-top: 0; /* No extra padding needed here */
+    transition: color 0.2s ease, transform 0.1s ease; /* Add color and transform transitions */
 }
 
 /* Back Arrow Link Hover Effect - Similar to menu-icon-link hover */
@@ -70,6 +103,17 @@ header h2#currentDay {
     transform: scale(1.1);
     opacity: 0.9;
 }
+
+/* Optional: Change icon color slightly on hover for extra feedback */
+.back-arrow-link:hover .back-arrow-icon {
+    color: #eee; /* Slightly lighter white on hover */
+}
+
+/* Back Arrow Link Active (Press) Effect */
+.back-arrow-link:active .back-arrow-icon {
+     transform: scale(0.95); /* Slightly shrink the icon when pressed */
+}
+
 
 /* --- Main Layout & Content Area --- */
 main.daily-page {
@@ -79,6 +123,17 @@ main.daily-page {
     padding: 30px 40px; /* Generous padding */
     border-radius: 15px; /* Rounded corners */
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
+    /* Add animation for the main content on load */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUpMainDaily 0.6s ease-out forwards 0.4s; /* Add delay */
+}
+
+@keyframes fadeInUpMainDaily {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Spacing between sections */
@@ -97,7 +152,20 @@ main.daily-page {
     align-items: center; /* Vertical alignment */
     padding-bottom: 25px;
     border-bottom: 1px solid #eee; /* Separator */
+     /* Add animation for the input section on load */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUpSection 0.6s ease-out forwards 0.6s; /* Add delay */
 }
+
+/* Keyframes for section fade-in/slide-up */
+@keyframes fadeInUpSection {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 .daily-page .task-input input[type="text"],
 .daily-page .task-input select {
@@ -135,7 +203,7 @@ main.daily-page {
     cursor: pointer;
     font-size: 1rem;
     font-weight: 500;
-    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease, opacity 0.2s ease; /* Added opacity */
     letter-spacing: 0.5px;
     color: white; /* Default button text color */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -147,6 +215,7 @@ main.daily-page {
 .daily-page button:active {
     transform: scale(0.98); /* Press effect */
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
+    opacity: 1; /* Ensure full opacity when active */
 }
 
 /* Add Task Button */
@@ -167,7 +236,21 @@ main.daily-page {
     flex-wrap: wrap;
     padding-bottom: 15px;
     border-bottom: 1px solid #eee; /* Separator */
+    /* Initial state for transition (managed by JS class) */
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    margin-top: 0; /* Adjust margin */
+    transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out, margin-top 0.5s ease-in-out;
 }
+
+/* State when task actions are visible */
+.daily-page .task-actions.show-actions {
+    opacity: 1;
+    max-height: 100px; /* Needs to be large enough to fit content */
+    margin-top: 25px; /* Restore margin */
+}
+
 
 /* Sort Buttons */
 .daily-page .sort-btn {
@@ -191,12 +274,20 @@ main.daily-page {
     background-color: #c9302c;
 }
 
-/* Utility class to hide elements */
-.hidden {
-    display: none !important; /* Ensure it overrides other display properties */
-}
+/* Utility class to hide elements - NOT USED for task-actions section anymore */
+/* .hidden {
+    display: none !important;
+} */
+
 
 /* --- Task List Styling --- */
+.daily-page .task-list-container {
+    /* Add animation for the task list container on load */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUpSection 0.6s ease-out forwards 0.8s; /* Add delay after previous sections */
+}
+
 .daily-page .task-list-container ul {
     list-style: none;
     padding: 0;
@@ -210,8 +301,10 @@ main.daily-page {
     padding: 12px 15px;
     background-color: white;
     border-bottom: 1px solid #eee;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, opacity 0.3s ease, transform 0.3s ease; /* Added opacity and transform */
     min-height: 50px; /* Consistent row height */
+    box-sizing: border-box; /* Include padding in size */
+    position: relative; /* Needed for fade-out animation */
 }
 .daily-page .task-list-container li:last-child {
     border-bottom: none;
@@ -226,6 +319,31 @@ main.daily-page {
     background-color: #f8f9fa; /* Light gray hover */
 }
 
+/* Animation for adding a new task */
+.daily-page .task-list-container li.fade-in {
+    opacity: 0;
+    transform: translateY(10px);
+    animation: listItemFadeIn 0.4s ease-out forwards;
+}
+@keyframes listItemFadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation for removing a task */
+.daily-page .task-list-container li.fade-out {
+    opacity: 0;
+    transform: translateX(-20px); /* Slide out left */
+    /* Use a fixed height during fade-out to prevent list jumping */
+    /* max-height: 50px; /* Match min-height or calc dynamic height in JS */
+    /* transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.3s ease; */
+    /* Using opacity and transform is often smoother */
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+
 /* Checkbox */
 .daily-page .task-list-container li input[type="checkbox"] {
     flex-shrink: 0;
@@ -234,6 +352,8 @@ main.daily-page {
     height: 18px;
     accent-color: #a1c4fd; /* Use a theme color (Monday blue) */
     margin-top: 2px; /* Fine-tune alignment */
+    /* Add transition for checkbox changes (though browser default is usually okay) */
+    transition: accent-color 0.2s ease;
 }
 
 /* Priority Labels */
@@ -250,7 +370,7 @@ main.daily-page {
     min-width: 70px; /* Ensure space for text */
     color: #fff; /* White text */
     text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease; /* Added border-color and transform */
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
@@ -260,11 +380,10 @@ main.daily-page {
 .daily-page .priority-medium { background-color: #ffca2c; border-color: #cca223; color: #333; text-shadow: none; } /* Inspired by Friday */
 .daily-page .priority-low { background-color: #a1ffce; border-color: #81cc9e; color: #333; text-shadow: none; } /* Inspired by Friday */
 
-/* Content inside priority labels (JS adds High/Medium/Low text) */
-/* Optionally add icons */
-/* .daily-page .priority-high::before { content: "🔥 High"; } */
-/* .daily-page .priority-medium::before { content: "🟠 Medium"; } */
-/* .daily-page .priority-low::before { content: "🟢 Low"; } */
+/* Priority Label Active (Press) Effect */
+.daily-page .priority-label:active {
+     transform: scale(0.95); /* Slightly shrink when pressed */
+}
 
 
 /* Task Text Span */
@@ -273,11 +392,12 @@ main.daily-page {
     word-break: break-word;
     cursor: text; /* Indicate editable */
     padding: 2px 0;
+    transition: color 0.2s ease, text-decoration 0.2s ease, font-style 0.2s ease; /* Add transitions for completion styles */
 }
 .daily-page .task-list-container li span.completed {
     text-decoration: line-through;
     color: #888;
-    font-style: italic;
+    font-style: italic; /* Added italic for completed */
 }
 
 /* Comment Paragraph */
@@ -292,7 +412,9 @@ main.daily-page {
     cursor: text; /* Indicate editable */
     padding: 2px 0;
     text-align: right; /* Align comments to the right */
+     transition: color 0.2s ease, font-style 0.2s ease; /* Add transitions */
 }
+
 
 /* Delete Button (within LI) */
 .daily-page .task-list-container li .delete-btn {
@@ -311,7 +433,7 @@ main.daily-page {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.2s ease, color 0.2s ease;
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease; /* Added transform */
     box-shadow: none; /* Override general button shadow */
 }
 .daily-page .task-list-container li .delete-btn:hover {
@@ -339,7 +461,18 @@ main.daily-page {
     min-width: 100px;
     outline: none;
     box-shadow: 0 0 0 3px rgba(161, 196, 253, 0.3); /* Focus glow */
+    /* Add animation for appearance */
+    opacity: 0;
+    transform: scale(0.98);
+    animation: editInputFadeIn 0.3s ease-out forwards;
 }
+@keyframes editInputFadeIn {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
 
 /* Style input when editing comments */
 .daily-page .task-list-container li .edit-input[data-original-tag='P'] {
@@ -352,6 +485,7 @@ main.daily-page {
 /* --- Drag and Drop Styling --- */
 .daily-page .task-list-container li[draggable="true"] {
     cursor: grab;
+    transition: background-color 0.2s ease, opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Include transform and box-shadow */
 }
 .daily-page .task-list-container li.dragging {
     opacity: 0.6;
@@ -359,9 +493,11 @@ main.daily-page {
     cursor: grabbing;
     box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Lift effect */
     border-radius: 8px; /* Apply rounding while dragging */
+    transform: scale(1.03); /* Slightly enlarge while dragging */
 }
 .daily-page .task-list-container li.drag-over {
     /* Use border or background change */
     /* border-top: 3px dashed #a1c4fd; */
     background-color: #ddeeff; /* Highlight drop target */
+    transition: background-color 0.2s ease; /* Smooth transition for highlight */
 }
