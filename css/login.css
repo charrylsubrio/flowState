@@ -7,7 +7,8 @@ body {
     flex-direction: column; /* Stack children vertically */
     min-height: 100vh; /* Ensure body takes at least full viewport height */
     padding: 20px; /* Add padding */
-    /* Background handled by login.js */
+    /* Background handled by login.js - Add transition */
+    transition: background 1s ease-in-out; /* Smooth transition for background changes */
 }
 
 /* --- Header --- */
@@ -24,7 +25,14 @@ header .logo-img {
     display: block;
     margin: 0 auto 20px auto; /* Center logo */
     filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3)); /* Match home logo shadow */
+    /* Add subtle transition */
+    transition: transform 0.3s ease-in-out;
 }
+
+header .logo-img:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
 
 /* Back Arrow Link Container (positioned) - Similar to menu-icon-link in home.css */
 .back-arrow-link {
@@ -35,6 +43,7 @@ header .logo-img {
     z-index: 10; /* Ensure it's above other elements */
     transition: transform 0.2s ease, opacity 0.2s ease;
     padding-left: 50px; /* Adjust padding similar to menu-icon-link */
+    color: white; /* Ensure the link area itself doesn't change color */
 }
 
 /* Back Arrow Icon Styling - Similar to menu-icon in home.css */
@@ -44,6 +53,7 @@ header .logo-img {
     cursor: pointer;
     filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.4));
     padding-top: 0; /* No extra padding needed here */
+    transition: color 0.2s ease; /* Smooth color transition */
 }
 
 /* Back Arrow Link Hover Effect - Similar to menu-icon-link hover */
@@ -51,6 +61,12 @@ header .logo-img {
     transform: scale(1.1);
     opacity: 0.9;
 }
+
+/* Optional: Change icon color slightly on hover for extra feedback */
+.back-arrow-link:hover .back-arrow-icon {
+    color: #eee; /* Slightly lighter white on hover */
+}
+
 
 /* Login Page Container */
 .login-page {
@@ -62,7 +78,19 @@ header .logo-img {
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Box shadow similar to day-box hover */
     text-align: center; /* Center text elements inside */
     flex-grow: 1; /* Allow main content to grow and push footer down */
+    /* Initial state for fade-in/slide-up animation */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards; /* Animation on page load */
 }
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 
 .login-page h2 {
     font-size: 2rem;
@@ -86,8 +114,10 @@ header .logo-img {
     margin-bottom: 8px; /* Space below label */
     font-weight: bold;
     color: #555;
+    transition: color 0.2s ease; /* Smooth color transition for label */
 }
 
+/* Add focus styles and transitions to inputs */
 .form-group input[type="text"],
 .form-group input[type="password"] {
     width: 100%; /* Input takes full width minus padding/border */
@@ -96,7 +126,22 @@ header .logo-img {
     border-radius: 5px; /* Slightly more rounded corners */
     box-sizing: border-box; /* Include padding and border in the element's total width and height */
     font-size: 1em;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions */
 }
+
+.form-group input[type="text"]:focus,
+.form-group input[type="password"]:focus {
+    outline: none; /* Remove default outline */
+    border-color: #5cb85c; /* Highlight border with theme color */
+    box-shadow: 0 0 8px rgba(92, 184, 92, 0.3); /* Add a subtle glow */
+}
+
+/* Optional: Change label color when input is focused */
+.form-group input[type="text"]:focus + label,
+.form-group input[type="password"]:focus + label {
+    color: #333; /* Darken label color on focus */
+}
+
 
 /* Button Styling (using the green theme color from home.css) */
 .login-page button[type="submit"] {
@@ -109,13 +154,20 @@ header .logo-img {
     cursor: pointer;
     font-size: 1.1rem;
     font-weight: bold;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.1s ease; /* Add transform transition */
     margin-top: 10px; /* Space above button */
 }
 
 .login-page button[type="submit"]:hover {
     background-color: #4cae4c; /* Darker green on hover */
 }
+
+.login-page button[type="submit"]:active {
+    /* Effect when button is pressed */
+    background-color: #398439; /* Even darker green */
+    transform: scale(0.98); /* Slightly shrink button when pressed */
+}
+
 
 /* Error Message Styling */
 .login-page .error-message {
@@ -124,6 +176,16 @@ header .logo-img {
     margin-top: 15px;
     margin-bottom: 0; /* No margin below error message */
     text-align: center; /* Center error text */
+    opacity: 0; /* Start hidden */
+    max-height: 0; /* Start with no height */
+    overflow: hidden; /* Hide overflow during transition */
+    transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out; /* Smooth transition */
+}
+
+.login-page .error-message.show {
+    opacity: 1; /* Fade in */
+    max-height: 50px; /* Give it a max height large enough to show content */
+    /* Adjust max-height if your error messages are expected to be taller */
 }
 
 
@@ -137,7 +199,7 @@ header .logo-img {
 .login-page p a {
     color: #007bff; /* Bootstrap primary blue for links */
     text-decoration: none;
-    transition: color 0.2s ease;
+    transition: color 0.2s ease, text-decoration 0.2s ease; /* Smooth transitions */
 }
 
 .login-page p a:hover {
