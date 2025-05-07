@@ -1,0 +1,205 @@
+/* Styles for the Menu Page - Matching Home Page Theme */
+
+/* Base styles - Copy from home.css */
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    color: #333; /* Default text color for general content */
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    /* Background handled by menu.js */
+}
+
+/* Header Styling - Similar structure to home.css header */
+header {
+    padding: 10px 20px;
+    text-align: center; /* Centers block/inline-block children like logo and title */
+    position: relative; /* Needed for absolute positioning of the icon */
+    /* Adjust padding to make space for both logo and title */
+    padding-top: 70px; /* Increased padding to push logo down */
+    padding-bottom: 30px; /* Space below the title */
+}
+
+/* Back Arrow Link Container (positioned) - Similar to menu-icon-link in home.css */
+.back-arrow-link {
+    position: absolute; /* Position relative to the header */
+    top: 20px; /* Adjust vertical position */
+    left: 20px; /* Adjust horizontal position */
+    display: block;
+    z-index: 10; /* Ensure it's above other elements */
+    transition: transform 0.2s ease, opacity 0.2s ease;
+    padding-left: 50px; /* Adjust padding similar to menu-icon-link */
+}
+
+/* Back Arrow Icon Styling - Similar to menu-icon in home.css */
+.back-arrow-icon {
+    font-size: 2rem; /* Adjust icon size */
+    color: white; /* Changed color to white */
+    cursor: pointer;
+    filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.4));
+    padding-top: 0; /* No extra padding needed here */
+}
+
+/* Back Arrow Link Hover Effect - Similar to menu-icon-link hover */
+.back-arrow-link:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+
+/* Logo Image Styling - Copied from home.css, adjusted margin */
+.logo-img {
+    width: 200px; /* Adjusted width slightly for menu? Or keep 250px from home? Let's use 200px for menu to be slightly smaller */
+    height: auto;
+    display: block; /* Treat as block for margin auto */
+    margin: 0 auto; /* Center horizontally */
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
+    margin-bottom: 10px; /* Space below logo, before title */
+}
+
+
+/* Page Title Styling - Similar to logo styling in home.css */
+.page-title {
+    margin: 0 auto; /* Center horizontally */
+    display: block; /* Treat as block for margin auto */
+    font-size: 2.5rem; /* Adjust title size */
+    color: white; /* Changed color to white */
+    filter: drop-shadow(0 0px 6px rgba(0, 0, 0, 0.3));
+    margin-bottom: 20px; /* Space below title */
+    text-align: center;
+}
+
+
+/* Main Content */
+main {
+    padding: 20px;
+    /* Background handled by JS */
+}
+
+/* Menu List */
+.menu-list {
+    list-style: none;
+    padding: 0;
+    margin: 20px auto; /* Center the list */
+    max-width: 500px; /* Limit list width for better readability */
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Shadow similar to day boxes */
+    overflow: hidden; /* Clip rounded corners */
+}
+
+/* Menu Item */
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.menu-item:hover {
+    background-color: rgba(0, 0, 0, 0.05); /* Subtle hover background */
+    transform: translateX(5px); /* Slight slide effect on hover */
+}
+
+.menu-item a {
+    text-decoration: none;
+    color: #333; /* Match text color */
+    font-size: 1.2rem; /* Adjust text size */
+    font-weight: 500;
+    flex-grow: 1; /* Allow link to take available space */
+    margin-left: 10px; /* Space between icon and text */
+}
+
+/* Icons within Menu Items */
+.menu-item i {
+    font-size: 1.5rem; /* Adjust icon size */
+    color: #0d6efd; /* Use a theme color, maybe blue similar to highlight */
+    flex-shrink: 0; /* Prevent icon from shrinking */
+}
+
+/* Horizontal Rule Separator */
+hr {
+    border: none;
+    border-top: 1px solid rgba(0, 0, 0, 0.1); /* Subtle separator line */
+    margin: 0 20px; /* Match list padding */
+}
+
+/* Modal Overlay */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+    display: flex; /* Used by JS to show the modal */
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it's on top */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fff; /* White background */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* More prominent shadow */
+    max-width: 400px; /* Limit content width */
+    width: 90%; /* Responsive width */
+    position: relative; /* For close button positioning */
+    text-align: center; /* Center modal content */
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Close Button */
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #aaa;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.close-button:hover {
+    color: #777;
+}
+
+/* Profile Info */
+.profile-info {
+    margin-top: 15px;
+}
+
+.profile-info p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.profile-info strong {
+    color: #555;
+}
+
+/* Manage Profile Button - Similar to other buttons in home.css */
+.manage-btn {
+    padding: 10px 20px;
+    border: none;
+    background-color: #5cb85c; /* Success green from home.css */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.manage-btn:hover {
+    background-color: #4cae4c; /* Darker green on hover */
+}

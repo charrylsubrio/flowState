@@ -1,3 +1,4 @@
+// Dynamic Gradient Background on Load
 document.body.style.background = `linear-gradient(to right, ${getRandomColor()}, ${getRandomColor()})`;
 
 function getRandomColor() {
@@ -24,7 +25,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (usernameInput === storedUsername && passwordInput === storedPassword) {
                 alert('Login successful!');
-                localStorage.setItem('flowstate_loggedIn', 'true'); // Simple flag for demonstration
+
+                // Store username for profile modal later
+                localStorage.setItem('username', usernameInput);
+                localStorage.setItem('flowstate_loggedIn', 'true'); // Optional login flag
+
                 window.location.href = 'home.html';
             } else {
                 loginError.textContent = 'Invalid username or password.';
