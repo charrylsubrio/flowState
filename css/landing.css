@@ -7,6 +7,7 @@ body {
   margin: 0;
   padding: 0;
   color: #343a40; /* Default text color set to the logo color */
+  overflow-x: hidden; /* Prevent horizontal scrollbar caused by animations */
 }
 
 /* Styling for the prominent "Start Free" button link */
@@ -39,6 +40,10 @@ body {
   /* background-color: #343a40; Navbar background is now the logo color */
   /* border-bottom: 2px solid #343a40; Bottom border matches the background */
   padding: 20px 60px; /* Increased horizontal padding on the navbar */
+  position: sticky; /* Make navbar sticky */
+  top: 0; /* Stick to the top */
+  z-index: 1000; /* Ensure it's above other content */
+  background-color: #343a4000; /* Ensure background color for sticky navbar */
 }
 
 /* Logo Image Size */
@@ -533,6 +538,8 @@ html {
 .call-to-action .container {
   max-width: 800px;
   margin: 0 auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
 }
 
 .call-to-action h2 {
@@ -564,3 +571,78 @@ html {
   background-color: transparent; /* Transparent background on hover */
   border: 2px solid #eeeeee; /* Border with initial background color on hover */
 }
+
+/* --- Scroll Animation Styles --- */
+
+/* Define Keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* Initial state for elements that will be animated */
+.animate-on-scroll {
+  opacity: 0;
+  /* Add a default transition for elements that might not have a specific animation class initially */
+  transition: opacity 0.6s ease-out;
+}
+
+/* Animation classes - applied by JavaScript */
+.animate-on-scroll.is-visible.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-on-scroll.is-visible.slide-left {
+  animation: slideInLeft 1s ease-out forwards;
+}
+
+.animate-on-scroll.is-visible.slide-right {
+  animation: slideInRight 1s ease-out forwards;
+}
+
+.animate-on-scroll.is-visible.fade-in-up {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Optional: Add delay to animations */
+.animate-on-scroll.is-visible[data-delay="0.2s"] { animation-delay: 0.2s; }
+.animate-on-scroll.is-visible[data-delay="0.4s"] { animation-delay: 0.4s; }
+.animate-on-scroll.is-visible[data-delay="0.6s"] { animation-delay: 0.6s; }
