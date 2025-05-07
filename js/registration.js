@@ -21,6 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
             localStorage.setItem('flowstate_username', username);
             localStorage.setItem('flowstate_password', password);
 
+            // Note: alert() is blocking and will interrupt CSS animations triggered by submit
+            // For smoother feedback, replace alert and direct redirect with modal/in-page message
             alert('Registration successful! Please log in.');
             window.location.href = 'login.html';
         });
