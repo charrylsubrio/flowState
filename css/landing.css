@@ -1,157 +1,134 @@
-/* To Do List (HomePage Style) */
-
-/* Background, font, and spacing setup */
 body {
   font-family: Arial, sans-serif;
-  /* background-color: #f8f9fa; A light background for better contrast with the new theme */
   margin: 0;
   padding: 0;
-  color: #343a40; /* Default text color set to the logo color */
-  overflow-x: hidden; /* Prevent horizontal scrollbar caused by animations */
+  color: #343a40;
+  overflow-x: hidden;
 }
 
-/* Styling for the prominent "Start Free" button link */
 .navbar .start-btn {
   padding: 10px 20px;
   border: none;
-  background-color: #5cb85c; /* Theme's green color */
+  background-color: #5cb85c;
   color: white;
   border-radius: 5px;
   cursor: pointer;
   text-decoration: none;
   font-weight: bold;
-  transition: background-color 0.2s ease, box-shadow 0.2s ease; /* Add box-shadow to transition */
-  display: inline-block; /* Ensure padding and shadow work */
-  /* Add box shadow */
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  display: inline-block;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
 
 .navbar .start-btn:hover {
-  background-color: #4cae4c; /* Darker green on hover */
-  /* Adjust box shadow on hover */
+  background-color: #4cae4c;
   box-shadow: 0 5px 12px rgba(0, 0, 0, 0.22);
 }
 
-/* Navigation Bar Design */
 .navbar {
   display: flex;
-  justify-content: space-between; /* Align items to the sides */
-  align-items: center; /* Center vertically */
-  /* background-color: #343a40; Navbar background is now the logo color */
-  /* border-bottom: 2px solid #343a40; Bottom border matches the background */
-  padding: 20px 60px; /* Increased horizontal padding on the navbar */
-  position: sticky; /* Make navbar sticky */
-  top: 0; /* Stick to the top */
-  z-index: 1000; /* Ensure it's above other content */
-  background-color: #343a4000; /* Ensure background color for sticky navbar */
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 60px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background-color: #343a4000;
 }
 
-/* Logo Image Size */
 .logo img {
-  height: 80px; /* Slightly reduced logo height for better navbar balance */
+  height: 80px;
   padding-left: 100px;
-  /* Removed left padding here, as the navbar's padding will handle spacing */
 }
 
-/* Navigation Links (Home, About Us, Contact Us) */
 .nav-links {
   list-style: none;
   display: flex;
-  gap: 25px; /* Slightly increased space between links */
+  gap: 25px;
   margin: 0;
   padding: 0;
 }
 
-/* Navigation Text Style */
 .nav-links li a {
   text-decoration: none;
-  color: #f8f9fa; /* Navigation link color is now a light color for contrast */
+  color: #f8f9fa;
   font-weight: bold;
-  transition: color 0.3s ease; /* Smooth color transition on hover */
+  transition: color 0.3s ease;
 }
 
 .nav-links li a:hover {
-  color: #adb5bd; /* A lighter shade on hover for better feedback */
+  color: #adb5bd;
 }
 
-/* Login and Start Button Layout */
 .auth-buttons {
   display: flex;
-  flex-direction: column; /* Stack elements vertically */
-  align-items: flex-end; /* Align to the right */
-  padding-right: 100px; /* Increased right padding to match navbar */
+  flex-direction: column;
+  align-items: flex-end;
+  padding-right: 100px;
   padding-top: 40px;
   padding-bottom: 40px;
 }
 
-/* Start Now Button Design */
 .auth-buttons .start-btn {
-  background-color: #f8f9fa; /* Start button background is now a light color */
+  background-color: #f8f9fa;
   color: #343a40;
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
   margin-bottom: 8px;
-  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth background and text color transition */
-  border: 2px solid #343a40; /* Added a border in the logo color */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  border: 2px solid #343a40;
 }
 
-/* Text Below Start Button (Log In Section) */
 .auth-buttons .login-group {
   font-size: 14px;
-  color: #eeeeef; /* A softer grey for this text */
+  color: #eeeeef;
 }
 
-/* Log In Link Style */
 .auth-buttons .login-group a {
-  color: #f8f9fa; /* Log in link color is a light color for contrast */
+  color: #f8f9fa;
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s ease; /* Smooth color transition on hover */
+  transition: color 0.3s ease;
 }
 
-/* Start Button Hover Effect */
 .auth-buttons .start-btn:hover {
-  background-color: transparent; /* Make the background transparent on hover */
-  color: #e9ecef; /* Set the text color to #e9ecef on hover */
-  border: 2px solid #e9ecef; /* Add a border with color #2c3035 on hover */
+  background-color: transparent;
+  color: #e9ecef;
+  border: 2px solid #e9ecef;
 }
 
-/* Log In Link Hover Effect */
 .auth-buttons .login-group a:hover {
-  text-decoration: underline; /* Underline on hover */
-  color: #adb5bd; /* Lighter shade on hover */
+  text-decoration: underline;
+  color: #adb5bd;
 }
 
-/* Main Header Section (home page text) */
 .main-message {
-  display: flex; /* Enable Flexbox for the main message container */
-  justify-content: space-between; /* Distribute space between text and image */
-  align-items: center; /* Vertically align text and image */
-  padding: 100px; /* Adjusted padding */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 100px;
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #ffffff; /* Added a white background for the main message area */
+  background-color: #ffffff;
 }
 
 .text-content {
-  max-width: 55%; /* Slightly wider text content area */
+  max-width: 55%;
 }
 
-/* Header 1 Style */
 .main-message h1 {
-  font-size: 3.0em; /* Adjusted font size */
+  font-size: 3.0em;
   margin-bottom: 0.4em;
-  color: #343a40; /* Heading color is now the logo color */
+  color: #343a40;
 }
 
-/* Paragraph Style */
 .main-message p {
-  font-size: 1.2em; /* Adjusted font size */
+  font-size: 1.2em;
   line-height: 1.7;
   margin-bottom: 1.5em;
-  color: #555; /* Slightly darker paragraph text */
+  color: #555;
 }
 
 .image-container {
@@ -161,72 +138,63 @@ body {
 .about-gif {
   width: 100%;
   height: auto;
-  border-radius: 8px; /* Added slight border radius for a softer look */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Start Now Button Below Text */
 #registerBtn {
-  background-color: #343a40; /* Consistent with the top start button */
+  background-color: #343a40;
   color: #ffffff;
-  padding: 12px 25px; /* Slightly larger button */
+  padding: 12px 25px;
   border-radius: 5px;
   font-size: 1.1em;
   text-decoration: none;
   margin-bottom: 1.5em;
   border: none;
   cursor: pointer;
-  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease; /* Added transitions for color, background, and border */
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
-/* Start Button Hover Color */
 #registerBtn:hover {
-  color: #343a40; /* Updated hover text color */
-  background-color: transparent; /* Updated hover background color */
-  border: 2px solid #343a40; /* Add border on hover */
+  color: #343a40;
+  background-color: transparent;
+  border: 2px solid #343a40;
 }
 
-/* Extra Info Text Below Button (No credit card needed | Best use! | ★★★★★) */
 .extra-info p {
   font-size: 1.0em;
   margin-bottom: 1em;
   color: #777;
 }
 
-/* Row for App Store and iOS Buttons */
 .store-links-row {
   display: flex;
   gap: 15px;
 }
 
-/* Each Store Link Button Style */
 .store-link {
   font-size: 1.1em;
   display: flex;
   align-items: center;
-  background-color: #e9ecef; /* Light grey background for these buttons */
+  background-color: #e9ecef;
   color: #495057;
   padding: 8px 12px;
   border-radius: 5px;
-  border: 1px solid #ced4da; /* Added a subtle border */
+  border: 1px solid #ced4da;
 }
 
-/* Store Link Text Spacing */
 .store-link span {
   margin-left: 8px;
 }
 
-/* About Section Styling */
 .about-section {
-  background-color: #ffffff; /* Light grey background */
+  background-color: #ffffff;
   padding: 80px 40px;
   text-align: center;
-  color: #343a40; /* Primary text color */
+  color: #343a40;
 }
 
-/*============================================================================================================================== */
 
-/* About Section Header Layout */
 .about-header {
   display: flex;
   flex-direction: column;
@@ -234,22 +202,20 @@ body {
 }
 
 .about-header h2 {
-  font-size: 2.2rem; /* Adjusted font size */
+  font-size: 2.2rem;
   margin-bottom: 15px;
-  color: #343a40; /* Heading color */
+  color: #343a40;
 }
 
-/* About GIF Image */
 .about-gif {
   width: 70%;
-  max-width: 500px; /* Slightly reduced max width */
+  max-width: 500px;
   height: auto;
   margin-top: 15px;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* About Section Details Layout */
 .about-details {
   display: flex;
   align-items: flex-start;
@@ -257,10 +223,9 @@ body {
   gap: 30px;
   margin-top: 30px;
   flex-wrap: wrap;
-  padding: 60px 40px; /* Adjusted padding */
+  padding: 60px 40px;
 }
 
-/* Task Creation GIF */
 .about-image {
   width: 45%;
   height: auto;
@@ -269,20 +234,17 @@ body {
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* About Text Styling */
 .about-text {
   flex: 1;
   text-align: left;
 }
 
-/* Bullet List for Features */
 .features-list {
   list-style: none;
   padding-left: 0;
   margin-top: 15px;
 }
 
-/* Each Feature in List */
 .features-list li {
   font-size: 1.1em;
   margin-bottom: 8px;
@@ -290,21 +252,18 @@ body {
   color: #555;
 }
 
-/* Highlight Text in About */
 .about-details .highlight {
-  font-size: 1.6em; /* Adjusted highlight size */
+  font-size: 1.6em;
   font-weight: bold;
   margin-bottom: 30px;
   color: #343a40;
 }
 
-/*============================================================================================================================== */
 
-/* Contact Us Section */
 .contact-section {
   padding: 60px 40px;
   text-align: center;
-  background-color: #ffffff; /* Light grey background */
+  background-color: #ffffff;
 }
 
 .contact-section h2 {
@@ -314,7 +273,6 @@ body {
   color: #343a40;
 }
 
-/* Layout */
 .contact-content {
   display: flex;
   justify-content: center;
@@ -322,7 +280,6 @@ body {
   flex-wrap: wrap;
 }
 
-/* Contact Custumer Suppurt | Talk to us (Allignment) */
 .contact-card {
   background-color: #fff;
   padding: 25px 20px;
@@ -331,7 +288,7 @@ body {
   width: 320px;
   text-align: left;
 }
-/* Contact Custumer Suppurt | Talk to us */
+
 .contact-card h3 {
   font-size: 1.6em;
   margin-bottom: 12px;
@@ -344,45 +301,40 @@ body {
   color: #555;
 }
 
-/* Contact Button */
 .contact-card button {
   display: inline-block;
   padding: 10px 18px;
-  background-color: #343a40; /* Contact button uses the logo color */
+  background-color: #343a40;
   color: white;
   border-radius: 5px;
   text-decoration: none;
   font-weight: bold;
   border: none;
   cursor: pointer;
-  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease; /* Added transitions */
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .contact-card button:hover {
-  color: #343a40; /* Updated hover text color to the logo's dark color */
-  background-color: white; /* Updated hover background to transparent */
-  border: 2px solid #343a40; /* Added border with the logo's dark color on hover */
+  color: #343a40;
+  background-color: white;
+  border: 2px solid #343a40;
 }
 
 
-/*============================================================================================================================== */
-
-/* ectra text Styling */
-
 .text-warning {
   padding-top: 20px;
-  color: #ffc107; /* Keeping the warning color as is */
+  color: #ffc107;
 }
 
 
 .qualities {
-  background-color: #f8f9fa; /* Light grey background */
+  background-color: #f8f9fa;
   padding-top: 30px;
   padding-bottom: 50px;
 }
 
 .qualities .container {
-  padding: 0 20px; /* Add some horizontal padding for smaller screens */
+  padding: 0 20px;
 }
 
 .footer-item {
@@ -390,27 +342,27 @@ body {
   padding: 15px;
 }
 .footer-item i {
-  color: #343a40; /* Icon color */
+  color: #343a40;
 }
 .footer-item h6 {
   font-weight: bold;
-  color: #343a40; /* Darker heading */
+  color: #343a40;
   margin-top: 10px;
 }
 .footer-item p {
   margin: 0;
-  color: #6c757d; /* Softer paragraph text */
+  color: #6c757d;
 }
 footer {
-  background-color: #343a40; /* Dark grey background for the main footer */
+  background-color: #343a40;
   padding-top: 40px;
   padding-bottom: 40px;
-  color: #fff; /* White text in the footer */
+  color: #fff;
 }
 
 footer h5 {
   font-weight: bold;
-  color: #adb5bd; /* Lighter grey for the headings */
+  color: #adb5bd;
   margin-bottom: 15px;
 }
 
@@ -425,7 +377,7 @@ footer ul li {
 
 footer ul li a {
   text-decoration: none;
-  color: #ced4da; /* Light grey for the links */
+  color: #ced4da;
   transition: color 0.3s ease;
 }
 
@@ -435,7 +387,7 @@ footer ul li a:hover {
 }
 
 footer .row {
-  padding: 0 20px; /* Horizontal padding for the footer rows */
+  padding: 0 20px;
 }
 
 footer small {
@@ -443,7 +395,7 @@ footer small {
 }
 
 footer i {
-  color: #adb5bd; /* Icon color in the footer */
+  color: #adb5bd;
 }
 
 footer span {
@@ -451,16 +403,14 @@ footer span {
 }
 
 .contact-section {
-  padding: 80px 20px; /* Adjust padding for responsiveness */
+  padding: 80px 20px;
 }
 
 html {
-  scroll-behavior: smooth; /* Smooth scrolling to destination */
+  scroll-behavior: smooth;
 }
 
-/* Call to Action Section */
 .call-to-action {
-  /* background-color: #e9ecef; Light grey background for contrast */
   padding: 60px 20px;
   text-align: center;
 }
@@ -487,24 +437,21 @@ html {
 .call-to-action .signup-btn {
   display: inline-block;
   padding: 12px 25px;
-  background-color: #343a40; /* Initial button background color */
+  background-color: #343a40;
   color: #eeeeee;
   text-decoration: none;
   border-radius: 5px;
   font-weight: bold;
-  border: none; /* Remove default border */
-  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease; /* Add transitions for all properties */
+  border: none;
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .call-to-action .signup-btn:hover {
-  color: #eeeeee; /* Hover text color same as initial background */
-  background-color: transparent; /* Transparent background on hover */
-  border: 2px solid #eeeeee; /* Border with initial background color on hover */
+  color: #eeeeee;
+  background-color: transparent;
+  border: 2px solid #eeeeee;
 }
 
-/* --- Scroll Animation Styles --- */
-
-/* Define Keyframes */
 @keyframes fadeIn {
   from {
       opacity: 0;
@@ -548,14 +495,11 @@ html {
 }
 
 
-/* Initial state for elements that will be animated */
 .animate-on-scroll {
   opacity: 0;
-  /* Add a default transition for elements that might not have a specific animation class initially */
   transition: opacity 0.6s ease-out;
 }
 
-/* Animation classes - applied by JavaScript */
 .animate-on-scroll.is-visible.fade-in {
   animation: fadeIn 1s ease-out forwards;
 }
@@ -572,7 +516,6 @@ html {
   animation: fadeInUp 0.8s ease-out forwards;
 }
 
-/* Optional: Add delay to animations */
 .animate-on-scroll.is-visible[data-delay="0.2s"] { animation-delay: 0.2s; }
 .animate-on-scroll.is-visible[data-delay="0.4s"] { animation-delay: 0.4s; }
 .animate-on-scroll.is-visible[data-delay="0.6s"] { animation-delay: 0.6s; }

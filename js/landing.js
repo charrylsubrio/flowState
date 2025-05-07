@@ -1,4 +1,3 @@
-// Dynamic Background (kept from original)
 document.body.style.background = `linear-gradient(to right, ${getRandomColor()}, ${getRandomColor()})`;
 
 function getRandomColor() {
@@ -11,7 +10,6 @@ function getRandomColor() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Button Click Redirects (kept from original)
     const registerBtn = document.getElementById('registerBtn');
     const loginBtn = document.getElementById('loginBtn');
 
@@ -27,32 +25,18 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- Scroll Animation Logic ---
-
     const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
 
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            // If the element is visible
             if (entry.isIntersecting) {
-                // Add the 'is-visible' class to trigger the animation
                 entry.target.classList.add('is-visible');
-
-                // Optionally, stop observing once the element has animated
-                // observer.unobserve(entry.target);
             }
-             // Optional: remove 'is-visible' if it scrolls out of view
-            // else {
-            //     entry.target.classList.remove('is-visible');
-            // }
         });
     }, {
-        // Options for the observer
-        // root: null, // default is the viewport
-        threshold: 0.2 // Trigger when 20% of the element is visible
+        threshold: 0.2
     });
 
-    // Observe each element
     elementsToAnimate.forEach(element => {
         observer.observe(element);
     });

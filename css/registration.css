@@ -1,87 +1,76 @@
-/* Base styles from home.css */
 body {
     font-family: sans-serif;
-    margin: 0; /* Remove default body margin for full background coverage */
+    margin: 0;
     color: #333;
-    display: flex; /* Use flexbox to center content */
-    flex-direction: column; /* Stack children vertically */
-    min-height: 100vh; /* Ensure body takes at least full viewport height */
-    padding: 20px; /* Add padding */
-    /* Background handled by registration.js - Add transition */
-    transition: background 1s ease-in-out; /* Smooth transition for background changes */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding: 20px;
+    transition: background 1s ease-in-out;
 }
 
-/* --- Header --- */
 header {
     text-align: center;
     padding: 10px 20px;
-    margin-bottom: 40px; /* Space below header */
+    margin-bottom: 40px;
 }
 
-/* Style assumes logo is added to daily.html */
 header .logo-img {
     width: 250px;
     height: auto;
     display: block;
-    margin: 0 auto 20px auto; /* Center logo */
-    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3)); /* Match home logo shadow */
-    /* Add subtle transition */
+    margin: 0 auto 20px auto;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
     transition: transform 0.3s ease-in-out;
 }
 
 header .logo-img:hover {
-    transform: scale(1.05); /* Slightly enlarge on hover */
+    transform: scale(1.05);
 }
 
 
-/* Back Arrow Link Container (positioned) - Similar to menu-icon-link in home.css */
 .back-arrow-link {
-    position: absolute; /* Position relative to the header */
-    top: 20px; /* Adjust vertical position */
-    left: 20px; /* Adjust horizontal position */
+    position: absolute;
+    top: 20px;
+    left: 20px;
     display: block;
-    z-index: 10; /* Ensure it's above other elements */
+    z-index: 10;
     transition: transform 0.2s ease, opacity 0.2s ease;
-    padding-left: 50px; /* Adjust padding similar to menu-icon-link */
-    color: white; /* Ensure the link area itself doesn't change color */
+    padding-left: 50px;
+    color: white;
 }
 
-/* Back Arrow Icon Styling - Similar to menu-icon in home.css */
 .back-arrow-icon {
-    font-size: 2rem; /* Adjust icon size */
-    color: white; /* Changed color to white */
+    font-size: 2rem;
+    color: white;
     cursor: pointer;
     filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.4));
-    padding-top: 0; /* No extra padding needed here */
-    transition: color 0.2s ease; /* Smooth color transition */
+    padding-top: 0;
+    transition: color 0.2s ease;
 }
 
-/* Back Arrow Link Hover Effect - Similar to menu-icon-link hover */
 .back-arrow-link:hover {
     transform: scale(1.1);
     opacity: 0.9;
 }
 
-/* Optional: Change icon color slightly on hover for extra feedback */
 .back-arrow-link:hover .back-arrow-icon {
-    color: #eee; /* Slightly lighter white on hover */
+    color: #eee;
 }
 
 
-/* Registration Page Container */
 .registration-page {
-    max-width: 400px; /* Restrict max width */
-    margin: 40px auto; /* Center horizontally and add top/bottom margin */
-    padding: 30px; /* Add internal padding */
-    background-color: rgba(255, 255, 255, 0.95); /* Semi-transparent white background */
-    border-radius: 12px; /* Rounded corners */
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Box shadow similar to day-box hover */
-    text-align: center; /* Center text elements inside */
-    flex-grow: 1; /* Allow main content to grow and push footer down */
-    /* Initial state for fade-in/slide-up animation */
+    max-width: 400px;
+    margin: 40px auto;
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    flex-grow: 1;
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeInUp 0.6s ease-out forwards; /* Animation on page load */
+    animation: fadeInUp 0.6s ease-out forwards;
 }
 
 @keyframes fadeInUp {
@@ -98,87 +87,81 @@ header .logo-img:hover {
     color: #222;
 }
 
-/* Form Styling (reusing patterns from home.css) */
 #registrationForm {
-    width: 100%; /* Form takes full width of its container */
+    width: 100%;
     margin-bottom: 20px;
 }
 
 .form-group {
-    margin-bottom: 20px; /* Increase spacing between groups */
-    text-align: left; /* Align labels and inputs left */
+    margin-bottom: 20px;
+    text-align: left;
 }
 
 .form-group label {
-    display: block; /* Label on its own line */
-    margin-bottom: 8px; /* Space below label */
+    display: block;
+    margin-bottom: 8px;
     font-weight: bold;
     color: #555;
-    transition: color 0.2s ease; /* Smooth color transition for label */
+    transition: color 0.2s ease;
 }
 
-/* Add focus styles and transitions to inputs */
 .form-group input[type="text"],
 .form-group input[type="password"] {
-    width: 100%; /* Input takes full width minus padding/border */
-    padding: 10px; /* Increase padding */
+    width: 100%;
+    padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px; /* Slightly more rounded corners */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    border-radius: 5px;
+    box-sizing: border-box;
     font-size: 1em;
-    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transitions */
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .form-group input[type="text"]:focus,
 .form-group input[type="password"]:focus {
-    outline: none; /* Remove default outline */
-    border-color: #5cb85c; /* Highlight border with theme color */
-    box-shadow: 0 0 8px rgba(92, 184, 92, 0.3); /* Add a subtle glow */
+    outline: none;
+    border-color: #5cb85c;
+    box-shadow: 0 0 8px rgba(92, 184, 92, 0.3);
 }
 
-/* Optional: Change label color when input is focused */
 .form-group input[type="text"]:focus + label,
 .form-group input[type="password"]:focus + label {
-    color: #333; /* Darken label color on focus */
+    color: #333;
 }
 
 
-/* Button Styling (using the green theme color from home.css) */
 .registration-page button[type="submit"] {
-    width: 100%; /* Button takes full width */
-    padding: 12px 20px; /* Adjust padding */
+    width: 100%;
+    padding: 12px 20px;
     border: none;
-    background-color: #5cb85c; /* Theme's green color */
+    background-color: #5cb85c;
     color: white;
     border-radius: 5px;
     cursor: pointer;
     font-size: 1.1rem;
     font-weight: bold;
-    transition: background-color 0.2s ease, transform 0.1s ease; /* Add transform transition */
-    margin-top: 10px; /* Space above button */
+    transition: background-color 0.2s ease, transform 0.1s ease;
+    margin-top: 10px;
 }
 
 .registration-page button[type="submit"]:hover {
-    background-color: #4cae4c; /* Darker green on hover */
+    background-color: #4cae4c;
 }
 
 .registration-page button[type="submit"]:active {
-    /* Effect when button is pressed */
-    background-color: #398439; /* Even darker green */
-    transform: scale(0.98); /* Slightly shrink button when pressed */
+    background-color: #398439;
+    transform: scale(0.98);
 }
 
 
-/* Link below the form */
 .registration-page p {
     font-size: 0.95em;
     color: #555;
 }
 
 .registration-page p a {
-    color: #007bff; /* Bootstrap primary blue for links */
+    color: #007bff;
     text-decoration: none;
-    transition: color 0.2s ease, text-decoration 0.2s ease; /* Smooth transitions */
+    transition: color 0.2s ease, text-decoration 0.2s ease;
 }
 
 .registration-page p a:hover {
@@ -186,23 +169,17 @@ header .logo-img:hover {
     text-decoration: underline;
 }
 
-/* Footer styling - minimal for an empty footer */
 footer {
     padding: 20px;
     text-align: center;
-    color: #aaa; /* Light color for potential copyright text */
+    color: #aaa;
 }
 
 
-/* Responsive adjustments */
 @media (max-width: 576px) {
     .registration-page {
         margin: 20px auto;
         padding: 20px;
-    }
-
-    header h1 {
-        font-size: 2rem;
     }
 
     .registration-page h2 {
