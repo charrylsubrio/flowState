@@ -12,6 +12,9 @@ function getRandomColor() {
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('loginForm');
     const loginError = document.getElementById('loginError');
+    const passwordInput = document.getElementById('password');
+    const togglePassword = document.getElementById('togglePassword');
+
 
     function showErrorMessage(message) {
         loginError.textContent = message;
@@ -21,6 +24,18 @@ document.addEventListener('DOMContentLoaded', () => {
     function hideErrorMessage() {
         loginError.classList.remove('show');
     }
+
+    // Add click listener to toggle password visibility
+    if (togglePassword && passwordInput) {
+        togglePassword.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+
+            this.classList.toggle('bi-eye');
+            this.classList.toggle('bi-eye-slash');
+        });
+    }
+
 
     if (loginForm) {
         loginForm.addEventListener('submit', (event) => {
