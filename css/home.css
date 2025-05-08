@@ -1,29 +1,23 @@
-/* Base styles from the original home.css */
 body {
     font-family: sans-serif;
-    margin: 0; /* Remove default body margin for full background coverage */
+    margin: 0;
     color: #333;
-    /* Prevent selecting text while dragging */
     user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    /* Background handled by home.js - Add transition */
-    transition: background 1s ease-in-out; /* Smooth transition for background changes */
+    transition: background 1s ease-in-out;
 }
 
-/* Modified Header Styling to include the menu icon */
 header {
     padding: 10px 20px;
-    text-align: center; /* Centers the logo */
-    position: relative; /* Needed for absolute positioning of the icon */
-    /* Adjust padding to ensure space for the absolutely positioned icon and logo */
-    padding-top: 20px; /* Reduced top padding */
+    text-align: center;
+    position: relative;
+    padding-top: 20px;
     padding-bottom: 30px;
-    /* Add animation for header elements on load */
     opacity: 0;
     transform: translateY(-20px);
-    animation: slideDownFadeInHeader 0.6s ease-out forwards 0.2s; /* Add delay */
+    animation: slideDownFadeInHeader 0.6s ease-out forwards 0.2s;
 }
 
 @keyframes slideDownFadeInHeader {
@@ -34,74 +28,60 @@ header {
 }
 
 
-/* Menu Icon Link Container (positioned) */
 .menu-icon-link {
-    position: absolute; /* Position relative to the header */
-    top: 20px; /* Adjust vertical position from the top of the header */
-    left: 20px; /* Adjust horizontal position from the left of the header */
-    display: block; /* Ensures the clickable area is predictable */
-    z-index: 10; /* Ensure it's above other elements in the header */
-    /* Add transition for hover effect */
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    display: block;
+    z-index: 10;
     transition: transform 0.2s ease, opacity 0.2s ease;
-    padding: 10px; /* Add padding around the icon for easier clicking */
-    /* Removed padding-left: 50px; as padding on link is sufficient */
-    box-sizing: border-box; /* Include padding in size */
+    padding: 10px;
+    box-sizing: border-box;
+    color: white;
 }
 
-/* Menu Icon Image Styling */
 .menu-icon {
-    width: 50px; /* Set icon size */
-    height: auto; /* Maintain aspect ratio */
-    cursor: pointer; /* Indicate it's clickable */
-    /* Add a subtle shadow, consistent with the theme */
+    width: 50px;
+    height: auto;
+    cursor: pointer;
     filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.2));
-    /* Removed padding-top: 40px; relying on link padding and header padding */
-    transition: transform 0.1s ease; /* Add press animation */
+    transition: transform 0.1s ease;
 }
 
-/* Menu Icon Hover Effect */
 .menu-icon-link:hover {
-    transform: scale(1.1); /* Slightly enlarge on hover */
-    opacity: 0.9; /* Slightly reduce opacity */
+    transform: scale(1.1);
+    opacity: 0.9;
 }
 
-/* Menu Icon Active (Press) Effect */
 .menu-icon-link:active .menu-icon {
-     transform: scale(0.95); /* Slightly shrink the icon when pressed */
+    transform: scale(0.95);
 }
 
 
-/* Original .logo-img styling - adjusted for the new header structure */
 .logo-img {
     width: 250px;
     height: auto;
     display: block;
-    /* Adjust margins/padding for the new header layout */
-    margin: 0 auto; /* Center horizontally */
+    margin: 0 auto;
     filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
-    /* Remove the large padding-top */
     padding-top: 0;
-    margin-bottom: 20px; /* Keep space below logo */
-    /* Add transition for hover effect */
+    margin-bottom: 20px;
     transition: transform 0.3s ease-in-out;
 }
 
-/* Logo Hover Effect */
 .logo-img:hover {
-    transform: scale(1.05); /* Slightly enlarge on hover */
+    transform: scale(1.05);
 }
 
 
-/* Original main styling */
 main {
     padding: 20px;
     background-color: transparent;
     border-radius: 0;
     box-shadow: none;
-    /* Add animation for the main content on load */
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeInUpMain 0.6s ease-out forwards 0.4s; /* Add delay */
+    animation: fadeInUpMain 0.6s ease-out forwards 0.4s;
 }
 
 @keyframes fadeInUpMain {
@@ -111,76 +91,6 @@ main {
     }
 }
 
-
-/* Original landing page actions styling (included as part of original css) */
-.landing-page .actions {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    margin-top: 20px;
-}
-
-/* Original button styling (included as part of original css) */
-/* Keeping these generic styles but adding active state transitions */
-.landing-page button,
-.registration-page button,
-.login-page button,
-.daily-page button {
-    padding: 10px 20px;
-    border: none;
-    background-color: #5cb85c;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.2s ease, transform 0.1s ease; /* Added transform */
-}
-
-.landing-page button:hover,
-.registration-page button:hover,
-.login-page button:hover,
-.daily-page button:hover {
-    background-color: #4cae4c;
-}
-
-/* Add active state for generic buttons */
-.landing-page button:active,
-.registration-page button:active,
-.login-page button:active,
-.daily-page button:active {
-    background-color: #398439; /* Even darker green */
-    transform: scale(0.98); /* Slightly shrink when pressed */
-}
-
-
-/* Original registration/login page container styling (included as part of original css) */
-.registration-page,
-.login-page {
-    max-width: 400px;
-    margin: 0 auto;
-}
-
-/* Original form-group styling (included as part of original css) */
-.form-group {
-    margin-bottom: 15px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-}
-
-.form-group input[type="text"],
-.form-group input[type="password"],
-.daily-page input[type="text"] {
-    width: calc(100% - 12px);
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-}
-
-/* Original home-page styling */
 .home-page {
     display: flex;
     justify-content: center;
@@ -204,8 +114,6 @@ main {
     width: 100%;
 }
 
-
-/* Original day-box styling */
 .home-page .day-box {
     background-color: #eee;
     width: 280px;
@@ -220,7 +128,6 @@ main {
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     background-size: 200% 200%;
-    /* animation: gradientShift 5s ease infinite; /* Assumed keyframes exist elsewhere */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -228,183 +135,32 @@ main {
     text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.35);
 }
 
-/* Original Gradient colors */
-.day-box[data-day="sunday"]     { background-image: linear-gradient(135deg, #ff9a9e, #fad0c4); }
-.day-box[data-day="monday"]     { background-image: linear-gradient(135deg, #a1c4fd, #c2e9fb); }
-.day-box[data-day="tuesday"]   { background-image: linear-gradient(135deg, #fbc2eb, #a6c1ee); }
+.day-box[data-day="sunday"] { background-image: linear-gradient(135deg, #ff9a9e, #fad0c4); }
+.day-box[data-day="monday"] { background-image: linear-gradient(135deg, #a1c4fd, #c2e9fb); }
+.day-box[data-day="tuesday"] { background-image: linear-gradient(135deg, #fbc2eb, #a6c1ee); }
 .day-box[data-day="wednesday"] { background-image: linear-gradient(135deg, #ffecd2, #fcb69f); }
-.day-box[data-day="thursday"]  { background-image: linear-gradient(135deg, #ffdde1, #ee9ca7); }
-.day-box[data-day="friday"]     { background-image: linear-gradient(135deg, #a1ffce, #faffd1); }
-.day-box[data-day="saturday"]   { background-image: linear-gradient(135deg, #fbc2eb, #fcd4df); }
+.day-box[data-day="thursday"] { background-image: linear-gradient(135deg, #ffdde1, #ee9ca7); }
+.day-box[data-day="friday"] { background-image: linear-gradient(135deg, #a1ffce, #faffd1); }
+.day-box[data-day="saturday"] { background-image: linear-gradient(135deg, #fbc2eb, #fcd4df); }
 
-/* Original day-box hover */
 .home-page .day-box:hover {
     transform: scale(1.13);
     box-shadow: 0 6px 15px rgba(0,0,0,0.15);
 }
 
-/* Add active state for day boxes */
 .home-page .day-box:active {
-    transform: scale(1.02); /* Slightly shrink when pressed */
-    box-shadow: 0 3px 8px rgba(0,0,0,0.2); /* Slightly reduce shadow */
+    transform: scale(1.02);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.2);
 }
 
-/* Original today-highlight */
 .today-highlight {
     border: 3px solid #0d6efd;
     box-shadow: 0 0 15px rgba(13, 110, 253, 0.5);
-    /* Add transition for the highlight properties */
     transition: border-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
 }
 
-/* --- Original Daily Page specific styles (included as part of original css) --- */
-/* Keeping these as they were in the original file */
-.daily-page .task-input {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-bottom: 20px;
-    align-items: center;
-}
-
-.daily-page .task-input input[type="text"] {
-    flex-grow: 1;
-    min-width: 150px;
-}
-
-.daily-page .task-input select#newPriority {
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: white;
-    cursor: pointer;
-}
-
-.daily-page .task-actions {
-    margin-bottom: 15px;
-    padding-bottom: 15px;
-    border-bottom: 1px solid #eee;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.danger-btn {
-    padding: 8px 15px;
-    border: none;
-    background-color: #d9534f;
-    color: white;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9em;
-    transition: background-color 0.2s ease;
-}
-.danger-btn:hover { background-color: #c9302c; }
-
-.sort-btn {
-    padding: 8px 15px;
-    border: 1px solid #aaa;
-    background-color: #f0f0f0;
-    color: #333;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 0.9em;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
-}
-.sort-btn:hover {
-    background-color: #e0e0e0;
-    border-color: #888;
-}
-
-.hidden { display: none; }
-
-.daily-page .task-list-container ul {
-    list-style: none;
-    padding: 0;
-}
-
-.daily-page .task-list-container li {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    background-color: white;
-    border-bottom: 1px solid #eee;
-    transition: background-color 0.2s ease;
-    gap: 8px;
-    box-sizing: border-box; /* Ensure padding is included in size */
-}
-.daily-page .task-list-container li:last-child { border-bottom: none; }
-
-.daily-page .task-list-container li input[type="checkbox"] {
-    flex-shrink: 0;
-}
-
-.priority-label {
-    font-weight: bold;
-    padding: 2px 6px;
-    border-radius: 4px;
-    font-size: 0.8em;
-    cursor: pointer;
-    user-select: none;
-    border: 1px solid transparent;
-    flex-shrink: 0;
+footer {
+    padding: 20px;
     text-align: center;
-    min-width: 20px;
+    color: #aaa;
 }
-
-.priority-high { background-color: #f8d7da; color: #721c24; border-color: #f5c6cb; }
-.priority-high::before { content: "H"; }
-
-.priority-medium { background-color: #fff3cd; color: #856404; border-color: #ffeeba; }
-.priority-medium::before { content: "M"; }
-
-.priority-low { background-color: #d1ecf1; color: #0c5460; border-color: #bee5eb; }
-.priority-low::before { content: "L"; }
-
-
-.daily-page .task-list-container li span:not(.priority-label) {
-    flex-grow: 1;
-    word-break: break-word;
-}
-.daily-page .task-list-container li span.completed {
-    text-decoration: line-through;
-    color: #777;
-}
-
-.daily-page .task-list-container li .comment {
-    font-style: italic;
-    color: #555;
-    flex-grow: 2;
-    word-break: break-word;
-}
-
-.daily-page .task-list-container li .delete-btn {
-    background-color: #d9534f;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-    margin-left: auto;
-    flex-shrink: 0;
-}
-.daily-page .task-list-container li .delete-btn:hover { background-color: #c9302c; }
-
-.daily-page .task-list-container li .edit-input {
-    flex-grow: 1;
-    padding: 4px 6px;
-    margin: 0;
-    border: 1px solid #ccc;
-    border-radius: 3px;
-    font-family: inherit;
-    font-size: inherit;
-    line-height: inherit;
-    box-sizing: border-box;
-    min-width: 100px;
-}
-
-.daily-page .task-list-container li[draggable="true"] { cursor: grab; }
-.daily-page .task-list-container li.dragging { opacity: 0.5; background: #cceeff; cursor: grabbing; }
-.daily-page .task-list-container li.drag-over { border-top: 2px solid blue; }
