@@ -28,7 +28,6 @@ header .logo-img:hover {
     transform: scale(1.05);
 }
 
-
 .back-arrow-link {
     position: absolute;
     top: 20px;
@@ -58,7 +57,6 @@ header .logo-img:hover {
     color: #eee;
 }
 
-
 .registration-page {
     max-width: 400px;
     margin: 40px auto;
@@ -79,7 +77,6 @@ header .logo-img:hover {
         transform: translateY(0);
     }
 }
-
 
 .registration-page h2 {
     font-size: 2rem;
@@ -105,6 +102,26 @@ header .logo-img:hover {
     transition: color 0.2s ease;
 }
 
+/* Added styles for password container and toggle icon */
+.password-container {
+    position: relative;
+}
+
+#togglePassword {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #555;
+    font-size: 1.1em;
+    transition: color 0.2s ease;
+}
+
+#togglePassword:hover {
+    color: #333;
+}
+
 .form-group input[type="text"],
 .form-group input[type="password"] {
     width: 100%;
@@ -127,7 +144,6 @@ header .logo-img:hover {
 .form-group input[type="password"]:focus + label {
     color: #333;
 }
-
 
 .registration-page button[type="submit"] {
     width: 100%;
@@ -152,7 +168,6 @@ header .logo-img:hover {
     transform: scale(0.98);
 }
 
-
 .registration-page p {
     font-size: 0.95em;
     color: #555;
@@ -174,7 +189,6 @@ footer {
     text-align: center;
     color: #aaa;
 }
-
 
 @media (max-width: 576px) {
     .registration-page {

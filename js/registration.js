@@ -11,6 +11,20 @@ function getRandomColor() {
 
 document.addEventListener('DOMContentLoaded', () => {
     const registrationForm = document.getElementById('registrationForm');
+    const passwordInput = document.getElementById('password');
+    const togglePassword = document.getElementById('togglePassword');
+
+
+    // Add click listener to toggle password visibility
+    if (togglePassword && passwordInput) {
+        togglePassword.addEventListener('click', function () {
+            const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+            passwordInput.setAttribute('type', type);
+
+            this.classList.toggle('bi-eye');
+            this.classList.toggle('bi-eye-slash');
+        });
+    }
 
     if (registrationForm) {
         registrationForm.addEventListener('submit', (event) => {

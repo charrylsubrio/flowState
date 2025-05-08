@@ -13,6 +13,17 @@ header {
     text-align: center;
     padding: 10px 20px;
     margin-bottom: 40px;
+    position: relative;
+    opacity: 0;
+    transform: translateY(-20px);
+    animation: slideDownFadeInHeader 0.6s ease-out forwards 0.2s;
+}
+
+@keyframes slideDownFadeInHeader {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 header .logo-img {
@@ -28,7 +39,6 @@ header .logo-img:hover {
     transform: scale(1.05);
 }
 
-
 .back-arrow-link {
     position: absolute;
     top: 20px;
@@ -36,7 +46,8 @@ header .logo-img:hover {
     display: block;
     z-index: 10;
     transition: transform 0.2s ease, opacity 0.2s ease;
-    padding-left: 50px;
+    padding: 10px;
+    box-sizing: border-box;
     color: white;
 }
 
@@ -46,7 +57,7 @@ header .logo-img:hover {
     cursor: pointer;
     filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.4));
     padding-top: 0;
-    transition: color 0.2s ease;
+    transition: color 0.2s ease, transform 0.1s ease;
 }
 
 .back-arrow-link:hover {
@@ -58,8 +69,11 @@ header .logo-img:hover {
     color: #eee;
 }
 
+.back-arrow-link:active .back-arrow-icon {
+     transform: scale(0.95);
+}
 
-.login-page {
+main.login-page {
     max-width: 400px;
     margin: 40px auto;
     padding: 30px;
@@ -70,7 +84,7 @@ header .logo-img:hover {
     flex-grow: 1;
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeInUp 0.6s ease-out forwards;
+    animation: fadeInUp 0.6s ease-out forwards 0.4s;
 }
 
 @keyframes fadeInUp {
@@ -79,7 +93,6 @@ header .logo-img:hover {
         transform: translateY(0);
     }
 }
-
 
 .login-page h2 {
     font-size: 2rem;
@@ -105,6 +118,27 @@ header .logo-img:hover {
     transition: color 0.2s ease;
 }
 
+/* Added styles for password container and toggle icon */
+.password-container {
+    position: relative;
+}
+
+#togglePassword {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+    color: #555;
+    font-size: 1.1em;
+    transition: color 0.2s ease;
+}
+
+#togglePassword:hover {
+    color: #333;
+}
+
+
 .form-group input[type="text"],
 .form-group input[type="password"] {
     width: 100%;
@@ -127,7 +161,6 @@ header .logo-img:hover {
 .form-group input[type="password"]:focus + label {
     color: #333;
 }
-
 
 .login-page button[type="submit"] {
     width: 100%;
@@ -152,7 +185,6 @@ header .logo-img:hover {
     transform: scale(0.98);
 }
 
-
 .login-page .error-message {
     color: #d9534f;
     font-size: 0.9em;
@@ -169,7 +201,6 @@ header .logo-img:hover {
     opacity: 1;
     max-height: 50px;
 }
-
 
 .login-page p {
     font-size: 0.95em;
