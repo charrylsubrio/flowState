@@ -1,29 +1,25 @@
 body {
     font-family: sans-serif;
     color: #333;
-    margin: 0; /* Reset default margin */
-    padding: 20px; /* Add padding */
-    /* Dynamic background gradient should be set by daily.js like home.js */
-    background-color: #eee; /* Fallback background */
-    min-height: 100vh; /* Ensure background covers viewport */
-    user-select: none; /* Prevent text selection during drag */
+    margin: 0;
+    padding: 20px;
+    background-color: #eee;
+    min-height: 100vh;
+    user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    /* Add transition for background changes from JS */
     transition: background 1s ease-in-out;
 }
 
-/* --- Header --- */
 header {
     text-align: center;
     padding: 10px 20px;
-    margin-bottom: 40px; /* Space below header */
-    position: relative; /* Needed for absolute positioning of the icon */
-    /* Add animation for header elements on load */
+    margin-bottom: 40px;
+    position: relative;
     opacity: 0;
     transform: translateY(-20px);
-    animation: slideDownFadeInHeader 0.6s ease-out forwards 0.2s; /* Add delay */
+    animation: slideDownFadeInHeader 0.6s ease-out forwards 0.2s;
 }
 
 @keyframes slideDownFadeInHeader {
@@ -33,38 +29,28 @@ header {
     }
 }
 
-
-/* Style assumes logo is added to daily.html */
 header .logo-img {
     width: 250px;
     height: auto;
     display: block;
-    margin: 0 auto 20px auto; /* Center logo */
-    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3)); /* Match home logo shadow */
-    /* Add subtle transition */
+    margin: 0 auto 20px auto;
+    filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.3));
     transition: transform 0.3s ease-in-out;
 }
 
 header .logo-img:hover {
-    transform: scale(1.05); /* Slightly enlarge on hover */
+    transform: scale(1.05);
 }
 
-/* Hide text H1 if logo is used */
-header h1 {
-    display: none;
-}
-
-/* Style the H2 for the current day */
 header h2#currentDay {
-    font-size: 2.2rem; /* Slightly larger day title */
+    font-size: 2.2rem;
     font-weight: 600;
-    color: #fff; /* White like day box text */
-    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4); /* Shadow like day box text */
-    margin-top: -15px; /* Adjust spacing relative to logo */
-    /* Add animation for the day title */
+    color: #fff;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+    margin-top: -15px;
     opacity: 0;
     transform: translateY(10px);
-    animation: fadeInUpDayTitle 0.6s ease-out forwards 0.5s; /* Add delay */
+    animation: fadeInUpDayTitle 0.6s ease-out forwards 0.5s;
 }
 
 @keyframes fadeInUpDayTitle {
@@ -74,59 +60,51 @@ header h2#currentDay {
     }
 }
 
-
-/* Back Arrow Link Container (positioned) - Similar to menu-icon-link in home.css */
 .back-arrow-link {
-    position: absolute; /* Position relative to the header */
-    top: 20px; /* Adjust vertical position */
-    left: 20px; /* Adjust horizontal position */
+    position: absolute;
+    top: 20px;
+    left: 20px;
     display: block;
-    z-index: 10; /* Ensure it's above other elements */
+    z-index: 10;
     transition: transform 0.2s ease, opacity 0.2s ease;
-    padding: 10px; /* Add padding around the icon for easier clicking */
-    box-sizing: border-box; /* Include padding in size */
-    color: white; /* Ensure the link area itself doesn't change color */
+    padding: 10px;
+    box-sizing: border-box;
+    color: white;
 }
 
-/* Back Arrow Icon Styling - Similar to menu-icon in home.css */
 .back-arrow-icon {
-    font-size: 2rem; /* Adjust icon size */
-    color: white; /* Changed color to white */
+    font-size: 2rem;
+    color: white;
     cursor: pointer;
     filter: drop-shadow(0 1px 4px rgba(0, 0, 0, 0.4));
-    padding-top: 0; /* No extra padding needed here */
-    transition: color 0.2s ease, transform 0.1s ease; /* Add color and transform transitions */
+    padding-top: 0;
+    transition: color 0.2s ease, transform 0.1s ease;
 }
 
-/* Back Arrow Link Hover Effect - Similar to menu-icon-link hover */
 .back-arrow-link:hover {
     transform: scale(1.1);
     opacity: 0.9;
 }
 
-/* Optional: Change icon color slightly on hover for extra feedback */
 .back-arrow-link:hover .back-arrow-icon {
-    color: #eee; /* Slightly lighter white on hover */
+    color: #eee;
 }
 
-/* Back Arrow Link Active (Press) Effect */
 .back-arrow-link:active .back-arrow-icon {
-     transform: scale(0.95); /* Slightly shrink the icon when pressed */
+     transform: scale(0.95);
 }
 
 
-/* --- Main Layout & Content Area --- */
 main.daily-page {
-    max-width: 850px; /* Max width for task area */
-    margin: 0 auto; /* Center the block */
-    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
-    padding: 30px 40px; /* Generous padding */
-    border-radius: 15px; /* Rounded corners */
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); /* Slightly stronger shadow */
-    /* Add animation for the main content on load */
+    max-width: 850px;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 30px 40px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeInUpMainDaily 0.6s ease-out forwards 0.4s; /* Add delay */
+    animation: fadeInUpMainDaily 0.6s ease-out forwards 0.4s;
 }
 
 @keyframes fadeInUpMainDaily {
@@ -136,7 +114,6 @@ main.daily-page {
     }
 }
 
-/* Spacing between sections */
 .daily-page section {
     margin-bottom: 25px;
 }
@@ -144,21 +121,18 @@ main.daily-page {
     margin-bottom: 0;
 }
 
-/* --- Task Input Section --- */
 .daily-page .task-input {
     display: flex;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
-    gap: 15px; /* Spacing between inputs/button */
-    align-items: center; /* Vertical alignment */
+    flex-wrap: wrap;
+    gap: 15px;
+    align-items: center;
     padding-bottom: 25px;
-    border-bottom: 1px solid #eee; /* Separator */
-     /* Add animation for the input section on load */
+    border-bottom: 1px solid #eee;
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeInUpSection 0.6s ease-out forwards 0.6s; /* Add delay */
+    animation: fadeInUpSection 0.6s ease-out forwards 0.6s;
 }
 
-/* Keyframes for section fade-in/slide-up */
 @keyframes fadeInUpSection {
     to {
         opacity: 1;
@@ -166,36 +140,33 @@ main.daily-page {
     }
 }
 
-
 .daily-page .task-input input[type="text"],
 .daily-page .task-input select {
     padding: 10px 12px;
     border: 1px solid #ccc;
-    border-radius: 8px; /* Consistent rounding */
+    border-radius: 8px;
     box-sizing: border-box;
     font-size: 1rem;
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 .daily-page .task-input input[type="text"] {
-    flex-grow: 1; /* Allow text inputs to take more space */
-    min-width: 150px; /* Minimum width */
+    flex-grow: 1;
+    min-width: 150px;
 }
 
 .daily-page .task-input select {
     background-color: white;
     cursor: pointer;
-    min-width: 100px; /* Prevent being too small */
+    min-width: 100px;
 }
 
-/* Focus styles using a theme color */
 .daily-page .task-input input[type="text"]:focus,
 .daily-page .task-input select:focus {
-    border-color: #a1c4fd; /* Blue from Monday box */
+    border-color: #a1c4fd;
     outline: none;
-    box-shadow: 0 0 0 3px rgba(161, 196, 253, 0.3); /* Soft glow */
+    box-shadow: 0 0 0 3px rgba(161, 196, 253, 0.3);
 }
 
-/* --- General Button Style (Base) --- */
 .daily-page button {
     padding: 10px 20px;
     border: none;
@@ -203,9 +174,9 @@ main.daily-page {
     cursor: pointer;
     font-size: 1rem;
     font-weight: 500;
-    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease, opacity 0.2s ease; /* Added opacity */
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease, opacity 0.2s ease;
     letter-spacing: 0.5px;
-    color: white; /* Default button text color */
+    color: white;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 .daily-page button:hover {
@@ -213,48 +184,42 @@ main.daily-page {
     box-shadow: 0 3px 6px rgba(0,0,0,0.15);
 }
 .daily-page button:active {
-    transform: scale(0.98); /* Press effect */
+    transform: scale(0.98);
     box-shadow: inset 0 1px 3px rgba(0,0,0,0.2);
-    opacity: 1; /* Ensure full opacity when active */
+    opacity: 1;
 }
 
-/* Add Task Button */
 .daily-page #addTaskBtn {
-    background-color: #5cb85c; /* Green */
-    flex-shrink: 0; /* Prevent shrinking */
+    background-color: #5cb85c;
+    flex-shrink: 0;
 }
 .daily-page #addTaskBtn:hover {
     background-color: #4cae4c;
 }
 
-/* --- Task Actions Section --- */
 .daily-page .task-actions {
     display: flex;
-    justify-content: flex-end; /* Align buttons to the right */
+    justify-content: flex-end;
     align-items: center;
     gap: 10px;
     flex-wrap: wrap;
     padding-bottom: 15px;
-    border-bottom: 1px solid #eee; /* Separator */
-    /* Initial state for transition (managed by JS class) */
+    border-bottom: 1px solid #eee;
     opacity: 0;
     max-height: 0;
     overflow: hidden;
-    margin-top: 0; /* Adjust margin */
+    margin-top: 0;
     transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out, margin-top 0.5s ease-in-out;
 }
 
-/* State when task actions are visible */
 .daily-page .task-actions.show-actions {
     opacity: 1;
-    max-height: 100px; /* Needs to be large enough to fit content */
-    margin-top: 25px; /* Restore margin */
+    max-height: 100px;
+    margin-top: 25px;
 }
 
-
-/* Sort Buttons */
 .daily-page .sort-btn {
-    background-color: #6c757d; /* Bootstrap secondary gray */
+    background-color: #6c757d;
     color: white;
     padding: 8px 15px;
     font-size: 0.9em;
@@ -263,9 +228,8 @@ main.daily-page {
     background-color: #5a6268;
 }
 
-/* Delete All Button */
 .daily-page .danger-btn {
-    background-color: #d9534f; /* Red */
+    background-color: #d9534f;
     color: white;
     padding: 8px 15px;
     font-size: 0.9em;
@@ -274,18 +238,10 @@ main.daily-page {
     background-color: #c9302c;
 }
 
-/* Utility class to hide elements - NOT USED for task-actions section anymore */
-/* .hidden {
-    display: none !important;
-} */
-
-
-/* --- Task List Styling --- */
 .daily-page .task-list-container {
-    /* Add animation for the task list container on load */
     opacity: 0;
     transform: translateY(20px);
-    animation: fadeInUpSection 0.6s ease-out forwards 0.8s; /* Add delay after previous sections */
+    animation: fadeInUpSection 0.6s ease-out forwards 0.8s;
 }
 
 .daily-page .task-list-container ul {
@@ -297,29 +253,27 @@ main.daily-page {
 .daily-page .task-list-container li {
     display: flex;
     align-items: center;
-    gap: 12px; /* Spacing between items in the row */
+    gap: 12px;
     padding: 12px 15px;
     background-color: white;
     border-bottom: 1px solid #eee;
-    transition: background-color 0.2s ease, opacity 0.3s ease, transform 0.3s ease; /* Added opacity and transform */
-    min-height: 50px; /* Consistent row height */
-    box-sizing: border-box; /* Include padding in size */
-    position: relative; /* Needed for fade-out animation */
+    transition: background-color 0.2s ease, opacity 0.3s ease, transform 0.3s ease;
+    min-height: 50px;
+    box-sizing: border-box;
+    position: relative;
 }
 .daily-page .task-list-container li:last-child {
     border-bottom: none;
-    border-radius: 0 0 15px 15px; /* Round bottom corners of the list */
+    border-radius: 0 0 15px 15px;
 }
 
 .daily-page .task-list-container li:first-child {
-     /* Optional: Round top corners if list container has padding */
      border-radius: 15px 15px 0 0;
 }
 .daily-page .task-list-container li:hover {
-    background-color: #f8f9fa; /* Light gray hover */
+    background-color: #f8f9fa;
 }
 
-/* Animation for adding a new task */
 .daily-page .task-list-container li.fade-in {
     opacity: 0;
     transform: translateY(10px);
@@ -332,34 +286,25 @@ main.daily-page {
     }
 }
 
-/* Animation for removing a task */
 .daily-page .task-list-container li.fade-out {
     opacity: 0;
-    transform: translateX(-20px); /* Slide out left */
-    /* Use a fixed height during fade-out to prevent list jumping */
-    /* max-height: 50px; /* Match min-height or calc dynamic height in JS */
-    /* transition: opacity 0.3s ease, transform 0.3s ease, max-height 0.3s ease; */
-    /* Using opacity and transform is often smoother */
+    transform: translateX(-20px);
     transition: opacity 0.3s ease-out, transform 0.3s ease-out;
 }
 
-
-/* Checkbox */
 .daily-page .task-list-container li input[type="checkbox"] {
     flex-shrink: 0;
     cursor: pointer;
     width: 18px;
     height: 18px;
-    accent-color: #a1c4fd; /* Use a theme color (Monday blue) */
-    margin-top: 2px; /* Fine-tune alignment */
-    /* Add transition for checkbox changes (though browser default is usually okay) */
+    accent-color: #a1c4fd;
+    margin-top: 2px;
     transition: accent-color 0.2s ease;
 }
 
-/* Priority Labels */
 .daily-page .priority-label {
     font-weight: bold;
-    padding: 4px 10px; /* Slightly more padding */
+    padding: 4px 10px;
     border-radius: 6px;
     font-size: 0.8em;
     cursor: pointer;
@@ -367,92 +312,83 @@ main.daily-page {
     border: 1px solid transparent;
     flex-shrink: 0;
     text-align: center;
-    min-width: 70px; /* Ensure space for text */
-    color: #fff; /* White text */
+    min-width: 70px;
+    color: #fff;
     text-shadow: 0 1px 2px rgba(0,0,0,0.2);
-    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease; /* Added border-color and transform */
+    transition: background-color 0.2s ease, border-color 0.2s ease, transform 0.1s ease;
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
 
-/* Define priority colors - using vibrant theme colors */
-.daily-page .priority-high { background-color: #ff7a85; border-color: #cc626b; } /* Inspired by Sunday/Thursday */
-.daily-page .priority-medium { background-color: #ffca2c; border-color: #cca223; color: #333; text-shadow: none; } /* Inspired by Friday */
-.daily-page .priority-low { background-color: #a1ffce; border-color: #81cc9e; color: #333; text-shadow: none; } /* Inspired by Friday */
+.daily-page .priority-high { background-color: #ff7a85; border-color: #cc626b; }
+.daily-page .priority-medium { background-color: #ffca2c; border-color: #cca223; color: #333; text-shadow: none; }
+.daily-page .priority-low { background-color: #a1ffce; border-color: #81cc9e; color: #333; text-shadow: none; }
 
-/* Priority Label Active (Press) Effect */
 .daily-page .priority-label:active {
-     transform: scale(0.95); /* Slightly shrink when pressed */
+     transform: scale(0.95);
 }
 
-
-/* Task Text Span */
 .daily-page .task-list-container li span:not(.priority-label) {
-    flex-grow: 1; /* Take available space */
+    flex-grow: 1;
     word-break: break-word;
-    cursor: text; /* Indicate editable */
+    cursor: text;
     padding: 2px 0;
-    transition: color 0.2s ease, text-decoration 0.2s ease, font-style 0.2s ease; /* Add transitions for completion styles */
+    transition: color 0.2s ease, text-decoration 0.2s ease, font-style 0.2s ease;
 }
 .daily-page .task-list-container li span.completed {
     text-decoration: line-through;
     color: #888;
-    font-style: italic; /* Added italic for completed */
+    font-style: italic;
 }
 
-/* Comment Paragraph */
 .daily-page .task-list-container li p.comment {
     font-style: italic;
     color: #555;
-    flex-basis: 35%; /* Suggest width, but allow shrinking */
+    flex-basis: 35%;
     flex-shrink: 2;
     word-break: break-word;
-    margin: 0; /* Reset default */
+    margin: 0;
     font-size: 0.9em;
-    cursor: text; /* Indicate editable */
+    cursor: text;
     padding: 2px 0;
-    text-align: right; /* Align comments to the right */
-     transition: color 0.2s ease, font-style 0.2s ease; /* Add transitions */
+    text-align: right;
+     transition: color 0.2s ease, font-style 0.2s ease;
 }
 
-
-/* Delete Button (within LI) */
 .daily-page .task-list-container li .delete-btn {
     background-color: transparent;
-    color: #dc3545; /* Bootstrap danger red */
+    color: #dc3545;
     border: none;
-    padding: 0; /* Remove padding */
-    border-radius: 50%; /* Circle */
+    padding: 0;
+    border-radius: 50%;
     cursor: pointer;
-    margin-left: auto; /* Push to far right */
+    margin-left: auto;
     flex-shrink: 0;
-    font-size: 1.3em; /* Make X slightly larger */
+    font-size: 1.3em;
     line-height: 1;
-    width: 32px; /* Set fixed size */
-    height: 32px; /* Set fixed size */
+    width: 32px;
+    height: 32px;
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease; /* Added transform */
-    box-shadow: none; /* Override general button shadow */
+    transition: background-color 0.2s ease, color 0.2s ease, transform 0.1s ease;
+    box-shadow: none;
 }
 .daily-page .task-list-container li .delete-btn:hover {
     background-color: #dc3545;
     color: white;
-    opacity: 1; /* Ensure full opacity on hover */
+    opacity: 1;
 }
 .daily-page .task-list-container li .delete-btn:active {
-     transform: scale(0.95); /* Slightly different active scale */
+     transform: scale(0.95);
      box-shadow: none;
  }
 
-
-/* --- Styling for Inline Edit Input --- */
 .daily-page .task-list-container li .edit-input {
-    flex-grow: 1; /* Take space */
-    padding: 8px 10px; /* Match other inputs */
+    flex-grow: 1;
+    padding: 8px 10px;
     margin: 0;
-    border: 1px solid #a1c4fd; /* Highlight editing */
+    border: 1px solid #a1c4fd;
     border-radius: 6px;
     font-family: inherit;
     font-size: inherit;
@@ -460,8 +396,7 @@ main.daily-page {
     box-sizing: border-box;
     min-width: 100px;
     outline: none;
-    box-shadow: 0 0 0 3px rgba(161, 196, 253, 0.3); /* Focus glow */
-    /* Add animation for appearance */
+    box-shadow: 0 0 0 3px rgba(161, 196, 253, 0.3);
     opacity: 0;
     transform: scale(0.98);
     animation: editInputFadeIn 0.3s ease-out forwards;
@@ -473,31 +408,32 @@ main.daily-page {
     }
 }
 
-
-/* Style input when editing comments */
 .daily-page .task-list-container li .edit-input[data-original-tag='P'] {
     font-style: italic;
     color: #555;
-    text-align: right; /* Match comment alignment */
-    flex-basis: 35%; /* Try to match comment width */
+    text-align: right;
+    flex-basis: 35%;
 }
 
-/* --- Drag and Drop Styling --- */
 .daily-page .task-list-container li[draggable="true"] {
     cursor: grab;
-    transition: background-color 0.2s ease, opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease; /* Include transform and box-shadow */
+    transition: background-color 0.2s ease, opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 .daily-page .task-list-container li.dragging {
     opacity: 0.6;
-    background: #eef4ff; /* Light blue background while dragging */
+    background: #eef4ff;
     cursor: grabbing;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2); /* Lift effect */
-    border-radius: 8px; /* Apply rounding while dragging */
-    transform: scale(1.03); /* Slightly enlarge while dragging */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border-radius: 8px;
+    transform: scale(1.03);
 }
 .daily-page .task-list-container li.drag-over {
-    /* Use border or background change */
-    /* border-top: 3px dashed #a1c4fd; */
-    background-color: #ddeeff; /* Highlight drop target */
-    transition: background-color 0.2s ease; /* Smooth transition for highlight */
+    background-color: #ddeeff;
+    transition: background-color 0.2s ease;
+}
+
+footer {
+    padding: 20px;
+    text-align: center;
+    color: #aaa;
 }
