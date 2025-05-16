@@ -91,12 +91,12 @@ header h2#currentDay {
 }
 
 .back-arrow-link:active .back-arrow-icon {
-     transform: scale(0.95);
+    transform: scale(0.95);
 }
 
 
 main.daily-page {
-    max-width: 850px;
+    max-width: 1250px;
     margin: 0 auto;
     background-color: rgba(255, 255, 255, 0.9);
     padding: 30px 40px;
@@ -214,7 +214,7 @@ main.daily-page {
 
 .daily-page .task-actions.show-actions {
     opacity: 1;
-    max-height: 100px;
+    max-height: 100px; /* Adjust if needed based on content */
     margin-top: 25px;
 }
 
@@ -257,7 +257,7 @@ main.daily-page {
     padding: 12px 15px;
     background-color: white;
     border-bottom: 1px solid #eee;
-    transition: background-color 0.2s ease, opacity 0.3s ease, transform 0.3s ease;
+    transition: background-color 0.3s ease, opacity 0.3s ease, transform 0.3s ease;
     min-height: 50px;
     box-sizing: border-box;
     position: relative;
@@ -268,29 +268,20 @@ main.daily-page {
 }
 
 .daily-page .task-list-container li:first-child {
-     border-radius: 15px 15px 0 0;
+    border-radius: 15px 15px 0 0;
 }
-.daily-page .task-list-container li:hover {
+.daily-page .task-list-container li:hover:not(.completed-item) {
     background-color: #f8f9fa;
 }
 
-.daily-page .task-list-container li.fade-in {
-    opacity: 0;
-    transform: translateY(10px);
-    animation: listItemFadeIn 0.4s ease-out forwards;
-}
-@keyframes listItemFadeIn {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+/* Style for the completed list item */
+.daily-page .task-list-container li.completed-item {
+    background-color: #e9ecef; /* A light grey background */
+    border-left: 5px solid #a1c4fd; /* A colored left border as an additional indicator */
+    opacity: 0.8; /* Slightly dim the entire item */
+    transition: background-color 0.3s ease, border-left-color 0.3s ease, opacity 0.3s ease;
 }
 
-.daily-page .task-list-container li.fade-out {
-    opacity: 0;
-    transform: translateX(-20px);
-    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
-}
 
 .daily-page .task-list-container li input[type="checkbox"] {
     flex-shrink: 0;
@@ -319,13 +310,18 @@ main.daily-page {
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
+/* Dim priority label on completed items */
+.daily-page .completed-item .priority-label {
+    opacity: 0.6;
+}
+
 
 .daily-page .priority-high { background-color: #ff7a85; border-color: #cc626b; }
 .daily-page .priority-medium { background-color: #ffca2c; border-color: #cca223; color: #333; text-shadow: none; }
 .daily-page .priority-low { background-color: #a1ffce; border-color: #81cc9e; color: #333; text-shadow: none; }
 
 .daily-page .priority-label:active {
-     transform: scale(0.95);
+    transform: scale(0.95);
 }
 
 .daily-page .task-list-container li span:not(.priority-label) {
@@ -333,11 +329,11 @@ main.daily-page {
     word-break: break-word;
     cursor: text;
     padding: 2px 0;
-    transition: color 0.2s ease, text-decoration 0.2s ease, font-style 0.2s ease;
+    transition: color 0.3s ease, text-decoration 0.3s ease, font-style 0.3s ease;
 }
 .daily-page .task-list-container li span.completed {
     text-decoration: line-through;
-    color: #888;
+    color: #888; /* Kept the grey color, but combined with other visual cues */
     font-style: italic;
 }
 
@@ -352,7 +348,12 @@ main.daily-page {
     cursor: text;
     padding: 2px 0;
     text-align: right;
-     transition: color 0.2s ease, font-style 0.2s ease;
+    transition: color 0.3s ease, font-style 0.3s ease;
+}
+/* Dim comment on completed items */
+.daily-page .completed-item p.comment {
+    color: #888; /* Match completed task text color */
+    opacity: 0.7;
 }
 
 .daily-page .task-list-container li .delete-btn {
@@ -380,9 +381,14 @@ main.daily-page {
     opacity: 1;
 }
 .daily-page .task-list-container li .delete-btn:active {
-     transform: scale(0.95);
-     box-shadow: none;
- }
+    transform: scale(0.95);
+    box-shadow: none;
+}
+/* Dim delete button on completed items */
+.daily-page .completed-item .delete-btn {
+    opacity: 0.5;
+}
+
 
 .daily-page .task-list-container li .edit-input {
     flex-grow: 1;
@@ -415,9 +421,9 @@ main.daily-page {
     flex-basis: 35%;
 }
 
-.daily-page .task-list-container li[draggable="true"] {
+
+.daily-page .task-list-container li[draggable="true"]:not(.completed-item) { /* Only draggable if not completed */
     cursor: grab;
-    transition: background-color 0.2s ease, opacity 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
 }
 .daily-page .task-list-container li.dragging {
     opacity: 0.6;
