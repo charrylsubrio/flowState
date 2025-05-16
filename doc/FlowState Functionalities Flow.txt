@@ -1,0 +1,60 @@
+****** FLOWSTATE FUNCTIONALITIES FLOW ******
+
+====== LANDING PAGE ======
+1. Header
+	a. Logo - Go to top.
+	b. Home - Go to Home section.
+	c. Features - Go to Features section.
+	d. Contact Us - Go to Contact section.
+	e. Start 1 - Go to Registration Page.
+	f. Log In - Go to Login Page.
+3. Main
+	a. Start 2 - Go to Registration Page.
+	b. Contact - Go to Contact section.
+	c. Sign Up - Go to Registration Page.
+4. Footer
+	a. Home - Go to Home section.
+	b. Features - Go to Features section.
+	c. Contact Us - Go to Contact section.
+	d. Add, Mark, & Drag - Go to Features section.
+	e. Register - Go to Registration Page.
+	f. Login - Go to Login Page.
+	g. GitHub - FlowState - Go to FlowState repo.
+	h. GitHub - Charryl - Go to Charryl GitHub profile.
+	i. GitHub - Christian - Go to Christian GitHub profile.
+	j. GitHub - Carl Jasper - Go to Carl Jasper GitHub profile.
+	h. Vercel - Go to deployed FlowState website.
+
+Issues:
+	a. Clicking anywhere in the Landing Page, a cursor icon ready to type is shown, there should not cursor icon popping up.
+
+====== REGISTRATION PAGE ======
+1. Arrow - Go to Landing Page.
+2. Login - Go to Login Page.
+3. Form
+	a. First Name - Should not accept special characters, except period. (done)
+	b. Last Name - Should not accept special characters. (done)
+	c. Birthdate - Must not accept today's or future date. (done)
+	d. Email - Must have "@" and ".com". (done)
+	e. Confirm Email - Must be equal to inputted Email. (done)
+	f. Username - Must be at least 8 characters. (done)
+	g. Password - Must be at least 8 characters. (done)
+	h. Confirm Password - Must be equal to Password. (done)
+	i. Register - Confirm then go to Login Page.
+
+Issues:
+	a. Clicking anywhere in the Landing Page, a cursor icon ready to type is shown, there should not cursor icon popping up.
+
+====== LOG-IN PAGE ======
+1. Arrow - Go to Last (Landing/Registration) Page.
+2. Register - Go to Registration Page.
+3. Form
+	a. Username - Must matched the registered account.
+	b. Password - Must matched the registered account.
+	c. Log-In - Confirm then go to Home Page.
+
+Issues:
+	a. Clicking anywhere in the Landing Page, a cursor icon ready to type is shown, there should not cursor icon popping up.
+
+====== HOME PAGE ======
+1. 

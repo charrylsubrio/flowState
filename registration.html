@@ -25,16 +25,59 @@
 
         <form id="registrationForm">
             <div class="form-group">
-                <label for="username">Username:</label>
-                <input type="text" id="username" name="username" required>
+                 <i class="bi bi-person icon-prefix"></i> <label for="firstName">First Name:</label>
+                <input type="text" id="firstName" name="firstName" required>
+                <div class="error-message" id="firstNameError"></div>
             </div>
+
             <div class="form-group">
-                <label for="password">Password:</label>
+                <i class="bi bi-person icon-prefix"></i> <label for="lastName">Last Name:</label>
+                <input type="text" id="lastName" name="lastName" required>
+                <div class="error-message" id="lastNameError"></div>
+            </div>
+
+            <div class="form-group">
+                 <i class="bi bi-calendar-date icon-prefix"></i> <label for="birthdate">Birthdate:</label>
+                <input type="date" id="birthdate" name="birthdate" required>
+                <div class="error-message" id="birthdateError"></div>
+            </div>
+
+            <div class="form-group">
+                 <i class="bi bi-envelope icon-prefix"></i> <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                <div class="error-message" id="emailError"></div>
+            </div>
+
+            <div class="form-group">
+                <i class="bi bi-envelope icon-prefix"></i> <label for="confirmEmail">Confirm Email:</label>
+                <input type="email" id="confirmEmail" name="confirmEmail" required>
+                <div class="error-message" id="confirmEmailError"></div>
+            </div>
+
+            <div class="form-group">
+                <i class="bi bi-person icon-prefix"></i> <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+                <div class="error-message" id="usernameError"></div>
+            </div>
+
+            <div class="form-group">
+                 <i class="bi bi-lock icon-prefix"></i> <label for="password">Password:</label>
                 <div class="password-container">
                     <input type="password" id="password" name="password" required>
-                    <i class="bi bi-eye-slash" id="togglePassword"></i>
+                    <i class="bi bi-eye-slash toggle-password-icon"></i>
                 </div>
+                 <div class="error-message" id="passwordError"></div>
             </div>
+
+             <div class="form-group">
+                 <i class="bi bi-lock icon-prefix"></i> <label for="confirmPassword">Confirm Password:</label>
+                <div class="password-container">
+                    <input type="password" id="confirmPassword" name="confirmPassword" required>
+                    <i class="bi bi-eye-slash toggle-password-icon"></i>
+                </div>
+                 <div class="error-message" id="confirmPasswordError"></div>
+            </div>
+
             <button type="submit">Register</button>
         </form>
 
