@@ -12,7 +12,7 @@ body {
 header {
     text-align: center;
     padding: 10px 20px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     position: relative;
     opacity: 0;
     transform: translateY(-20px);
@@ -74,14 +74,13 @@ header .logo-img:hover {
 }
 
 main.login-page {
-    max-width: 400px;
-    margin: 40px auto;
+    max-width: 1000px;
+    margin: 10px auto;
     padding: 30px;
     background-color: rgba(255, 255, 255, 0.95);
     border-radius: 12px;
     box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
     text-align: center;
-    flex-grow: 1;
     opacity: 0;
     transform: translateY(20px);
     animation: fadeInUp 0.6s ease-out forwards 0.4s;
@@ -108,22 +107,34 @@ main.login-page {
 .form-group {
     margin-bottom: 20px;
     text-align: left;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.form-group > i.icon-prefix {
+    margin-right: 10px;
+    color: #d06148;
+    font-size: 1.2em;
+    flex-shrink: 0;
 }
 
 .form-group label {
-    display: block;
-    margin-bottom: 8px;
+    margin-bottom: 0;
+    margin-right: 10px;
     font-weight: bold;
     color: #555;
     transition: color 0.2s ease;
+    flex-shrink: 0;
 }
 
-/* Added styles for password container and toggle icon */
 .password-container {
     position: relative;
+    flex-grow: 1;
+    width: auto;
 }
 
-#togglePassword {
+.toggle-password-icon {
     position: absolute;
     top: 50%;
     right: 10px;
@@ -132,16 +143,17 @@ main.login-page {
     color: #555;
     font-size: 1.1em;
     transition: color 0.2s ease;
+    z-index: 2;
 }
 
-#togglePassword:hover {
+.toggle-password-icon:hover {
     color: #333;
 }
 
-
-.form-group input[type="text"],
-.form-group input[type="password"] {
-    width: 100%;
+.form-group input[type="text"]
+{
+    width: auto;
+    flex-grow: 1;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -150,16 +162,31 @@ main.login-page {
     transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
-.form-group input[type="text"]:focus,
-.form-group input[type="password"]:focus {
+.password-container input[type="password"],
+.password-container input[type="text"]
+ {
+    width: 100%;
+    padding: 10px 35px 10px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 1em;
+    transition: border-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+     flex-grow: 1;
+}
+
+.form-group input[type="text"]:focus
+{
     outline: none;
     border-color: #5cb85c;
     box-shadow: 0 0 8px rgba(92, 184, 92, 0.3);
 }
 
-.form-group input[type="text"]:focus + label,
-.form-group input[type="password"]:focus + label {
-    color: #333;
+.password-container input[type="password"]:focus,
+.password-container input[type="text"]:focus {
+     outline: none;
+    border-color: #5cb85c;
+    box-shadow: 0 0 8px rgba(92, 184, 92, 0.3);
 }
 
 .login-page button[type="submit"] {
@@ -188,35 +215,28 @@ main.login-page {
 .login-page .error-message {
     color: #d9534f;
     font-size: 0.9em;
-    margin-top: 15px;
+    margin-top: 5px;
     margin-bottom: 0;
-    text-align: center;
+    text-align: left;
     opacity: 0;
     max-height: 0;
     overflow: hidden;
     transition: opacity 0.5s ease-in-out, max-height 0.5s ease-in-out;
+    flex-basis: 100%;
+    width: 100%;
 }
 
 .login-page .error-message.show {
     opacity: 1;
     max-height: 50px;
+    margin-bottom: 10px;
 }
 
 .login-page p {
     font-size: 0.95em;
     color: #555;
-    margin-top: 20px;
-}
-
-.login-page p a {
-    color: #007bff;
-    text-decoration: none;
-    transition: color 0.2s ease, text-decoration 0.2s ease;
-}
-
-.login-page p a:hover {
-    color: #0056b3;
-    text-decoration: underline;
+     margin-top: 30px;
+     margin-bottom: 0;
 }
 
 footer {
